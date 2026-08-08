@@ -23,11 +23,9 @@
 
     <main class="app">
 
-        <!-- ================= HOME ================= -->
-
         <section id="homeScreen" class="screen active">
 
-            <div class="cookie">
+            <div class="cookie bounce-anim">
                 🍪
             </div>
 
@@ -51,40 +49,22 @@
                     <label>Pilih Kelas</label>
 
                     <div class="option-group">
-                        <button class="class-btn selected" data-class="10">
-                            Kelas X
-                        </button>
-
-                        <button class="class-btn" data-class="11">
-                            Kelas XI
-                        </button>
-
-                        <button class="class-btn" data-class="12">
-                            Kelas XII
-                        </button>
+                        <button class="class-btn selected" data-class="10">Kelas X</button>
+                        <button class="class-btn" data-class="11">Kelas XI</button>
+                        <button class="class-btn" data-class="12">Kelas XII</button>
                     </div>
 
                     <label>Pilih Kategori</label>
 
                     <div class="option-group">
-
-                        <button class="category-btn selected" data-category="Semua">
-                            🎯 Semua
-                        </button>
-
-                        <button class="category-btn" data-category="Pengetahuan Umum">
-                            🌎 Umum
-                        </button>
-
-                        <button class="category-btn" data-category="Sains">
-                            🔬 Sains
-                        </button>
-
+                        <button class="category-btn selected" data-category="Semua">🎯 Semua</button>
+                        <button class="category-btn" data-category="Pengetahuan Umum">🌎 Umum</button>
+                        <button class="category-btn" data-category="Sains">🔬 Sains</button>
                     </div>
 
                 </div>
 
-                <button id="startBtn" class="primary-btn">
+                <button id="startBtn" class="primary-btn pulse-anim">
                     Mulai Bermain 🚀
                 </button>
 
@@ -93,18 +73,13 @@
         </section>
 
 
-        <!-- ================= QUIZ ================= -->
-
         <section id="quizScreen" class="screen">
 
             <div class="quiz-header">
 
-                <button id="quitBtn" class="quit-btn">
-                    ✕
-                </button>
+                <button id="quitBtn" class="quit-btn">✕</button>
 
                 <div class="progress-container">
-
                     <div class="progress-info">
                         <span id="questionNumber">Soal 1</span>
                         <span id="scoreDisplay">⭐ 0</span>
@@ -113,30 +88,21 @@
                     <div class="progress-bar">
                         <div id="progressFill"></div>
                     </div>
-
                 </div>
 
-                <div id="timer" class="timer">
-                    ⏱️ 20
-                </div>
+                <div id="timer" class="timer">⏱️ 20</div>
 
             </div>
 
-
-            <div class="cookie-small">
+            <div class="cookie-small float-anim">
                 🍪
             </div>
 
-
             <div class="card question-card">
 
-                <span id="categoryBadge" class="badge">
-                    Pengetahuan Umum
-                </span>
+                <span id="categoryBadge" class="badge">Pengetahuan Umum</span>
 
-                <h2 id="questionText">
-                    Pertanyaan akan muncul di sini
-                </h2>
+                <h2 id="questionText">Pertanyaan akan muncul di sini</h2>
 
                 <div id="answers" class="answers"></div>
 
@@ -151,19 +117,15 @@
         </section>
 
 
-        <!-- ================= RESULT ================= -->
-
         <section id="resultScreen" class="screen">
 
-            <div class="result-cookie">
+            <div class="result-cookie pop-anim">
                 🍪
             </div>
 
             <h1>Quiz Selesai! 🎉</h1>
 
-            <p class="result-message">
-                Kerja bagus, Pejuang Ilmu!
-            </p>
+            <p class="result-message">Kerja bagus, Pejuang Ilmu!</p>
 
             <div class="card result-card">
 
@@ -172,40 +134,27 @@
                     <small>/ 100</small>
                 </div>
 
-                <h2 id="resultTitle">
-                    Hebat!
-                </h2>
+                <h2 id="resultTitle">Hebat!</h2>
 
-                <p id="resultDescription">
-                    Kamu sudah berusaha dengan baik.
-                </p>
+                <p id="resultDescription">Kamu sudah berusaha dengan baik.</p>
 
                 <div class="result-stats">
-
                     <div>
                         <strong id="correctCount">0</strong>
                         <span>Benar</span>
                     </div>
-
                     <div>
                         <strong id="wrongCount">0</strong>
                         <span>Salah</span>
                     </div>
-
                     <div>
                         <strong id="totalCount">0</strong>
                         <span>Total</span>
                     </div>
-
                 </div>
 
-                <button id="restartBtn" class="primary-btn">
-                    Main Lagi 🔄
-                </button>
-
-                <button id="homeBtn" class="secondary-btn">
-                    Kembali ke Beranda 🏠
-                </button>
+                <button id="restartBtn" class="primary-btn">Main Lagi 🔄</button>
+                <button id="homeBtn" class="secondary-btn">Kembali ke Beranda 🏠</button>
 
             </div>
 
@@ -213,8 +162,8 @@
 
     </main>
 
-
     <script src="script.js"></script>
 
 </body>
 </html>
+                
