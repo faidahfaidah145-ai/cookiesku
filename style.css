@@ -1,0 +1,498 @@
+ /* =====================================
+   COOKIEKU
+   MODERN AESTHETIC UI
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #fff8ef;
+    --brown: #6b4534;
+    --brown-dark: #4d3024;
+    --orange: #f5a45b;
+    --orange-dark: #e8893d;
+    --pink: #f7b7b2;
+    --green: #9bc8a5;
+    --white: #ffffff;
+    --gray: #777;
+    --shadow: 0 20px 50px rgba(107, 69, 52, 0.12);
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    background: var(--cream);
+    color: var(--brown);
+    overflow-x: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.45;
+}
+
+.blob-1 {
+    width: 350px;
+    height: 350px;
+    background: #ffd9b8;
+    top: -100px;
+    left: -100px;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: #f9c8c4;
+    right: -100px;
+    top: 30%;
+}
+
+.blob-3 {
+    width: 250px;
+    height: 250px;
+    background: #c8e5cc;
+    bottom: -100px;
+    left: 20%;
+}
+
+/* ================= APP ================= */
+
+.app {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.screen {
+    display: none;
+    min-height: calc(100vh - 70px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ================= HOME ================= */
+
+.cookie {
+    font-size: 85px;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 10px rgba(100, 60, 40, .15));
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: 70px;
+    line-height: 1;
+    color: var(--brown-dark);
+}
+
+h1 span {
+    color: var(--orange-dark);
+}
+
+.tagline {
+    text-align: center;
+    margin: 15px 0 25px;
+    color: #876c5c;
+    line-height: 1.7;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    width: 100%;
+    background: rgba(255,255,255,.9);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 30px;
+    padding: 35px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(15px);
+}
+
+.welcome-card {
+    max-width: 650px;
+    text-align: center;
+}
+
+.welcome-card h2 {
+    font-family: "Baloo 2", cursive;
+    font-size: 28px;
+}
+
+.welcome-card > p {
+    margin-top: 5px;
+    color: var(--gray);
+}
+
+/* ================= SELECTION ================= */
+
+.selection {
+    margin: 25px 0;
+}
+
+.selection label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0 8px;
+}
+
+.option-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.class-btn,
+.category-btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 12px 15px;
+    border: 2px solid #eee1d7;
+    background: white;
+    border-radius: 15px;
+    color: var(--brown);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.class-btn:hover,
+.category-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--orange);
+}
+
+.class-btn.selected,
+.category-btn.selected {
+    background: #fff0e2;
+    border-color: var(--orange);
+    color: var(--orange-dark);
+}
+
+/* ================= BUTTON ================= */
+
+.primary-btn {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(232, 137, 61, .25);
+    transition: .25s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(232, 137, 61, .3);
+}
+
+.secondary-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    background: transparent;
+    color: var(--brown);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ================= QUIZ HEADER ================= */
+
+.quiz-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.quit-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: var(--brown);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.progress-container {
+    flex: 1;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #eaded5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), var(--pink));
+    border-radius: inherit;
+    transition: width .4s;
+}
+
+.timer {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 14px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
+}
+
+/* ================= QUIZ ================= */
+
+.cookie-small {
+    font-size: 55px;
+    margin-bottom: -15px;
+    z-index: 2;
+}
+
+.question-card {
+    max-width: 750px;
+}
+
+.badge {
+    display: inline-block;
+    background: #fff0e2;
+    color: var(--orange-dark);
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#questionText {
+    font-family: "Baloo 2", cursive;
+    font-size: 27px;
+    line-height: 1.3;
+    margin: 20px 0;
+}
+
+/* ================= ANSWERS ================= */
+
+.answers {
+    display: grid;
+    gap: 12px;
+}
+
+.answer-btn {
+    width: 100%;
+    text-align: left;
+    padding: 15px 18px;
+    background: #fffaf6;
+    border: 2px solid #eee1d7;
+    border-radius: 15px;
+    color: var(--brown);
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.answer-btn:hover {
+    border-color: var(--orange);
+    transform: translateX(4px);
+}
+
+.answer-btn.correct {
+    background: #e9f6eb;
+    border-color: var(--green);
+}
+
+.answer-btn.wrong {
+    background: #fff0ef;
+    border-color: #e69b95;
+}
+
+.answer-btn:disabled {
+    cursor: default;
+}
+
+.feedback {
+    min-height: 30px;
+    text-align: center;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.next-btn {
+    display: none;
+}
+
+/* ================= RESULT ================= */
+
+.result-cookie {
+    font-size: 80px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.result-message {
+    margin: 10px 0 25px;
+    color: var(--gray);
+}
+
+.result-card {
+    max-width: 550px;
+    text-align: center;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff0e2, #ffe1c7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.score-circle span {
+    font-family: "Baloo 2", cursive;
+    font-size: 55px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--orange-dark);
+}
+
+.score-circle small {
+    font-weight: 600;
+}
+
+.result-card h2 {
+    font-family: "Baloo 2", cursive;
+    font-size: 30px;
+}
+
+#resultDescription {
+    color: var(--gray);
+    margin: 5px 0 25px;
+}
+
+.result-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.result-stats div {
+    padding: 15px 5px;
+    background: #fffaf6;
+    border-radius: 15px;
+}
+
+.result-stats strong {
+    display: block;
+    font-size: 23px;
+}
+
+.result-stats span {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .app {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    .cookie {
+        font-size: 70px;
+    }
+
+    .card {
+        padding: 25px 18px;
+        border-radius: 25px;
+    }
+
+    .option-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .class-btn:last-child {
+        grid-column: span 2;
+    }
+
+    #questionText {
+        font-size: 23px;
+    }
+
+    .quiz-header {
+        gap: 8px;
+    }
+
+    .timer {
+        padding: 9px;
+        font-size: 13px;
+    }
+
+    .result-stats {
+        gap: 7px;
+    }
+
+}      
