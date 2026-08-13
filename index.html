@@ -1,239 +1,587 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="CookieKu - Aplikasi asah otak dan belajar interaktif untuk siswa SMA."
+    >
+
+    <meta
+        name="theme-color"
+        content="#f5a45b"
+    >
 
     <title>CookieKu 2.0 🍪</title>
 
-    <meta name="description"
-        content="CookieKu 2.0 - Aplikasi asah otak dan belajar interaktif untuk siswa SMA">
+    <!-- ================================
+         GOOGLE FONT
+    ================================= -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <!-- ================================
+         CSS
+    ================================= -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- BACKGROUND -->
-    <div class="background">
+    <!-- =================================
+         BACKGROUND DECORATION
+    ================================== -->
+
+    <div
+        class="background"
+        aria-hidden="true"
+    >
+
         <div class="blob blob-1"></div>
+
         <div class="blob blob-2"></div>
+
         <div class="blob blob-3"></div>
+
         <div class="sparkle sparkle-1">✦</div>
+
         <div class="sparkle sparkle-2">✧</div>
+
         <div class="sparkle sparkle-3">✦</div>
+
     </div>
 
 
+    <!-- =================================
+         SOUND TOGGLE
+    ================================== -->
+
+    <button
+        id="soundToggle"
+        class="sound-toggle"
+        type="button"
+        aria-label="Nyalakan atau matikan suara"
+        title="Suara"
+    >
+        🔊
+    </button>
+
+
+    <!-- =================================
+         MAIN APP
+    ================================== -->
+
     <main class="app">
 
-        <!-- ================= HOME ================= -->
 
-        <section id="homeScreen" class="screen active">
+        <!-- =================================================
+             HOME SCREEN
+        ================================================== -->
+
+        <section
+            id="homeScreen"
+            class="screen active"
+        >
+
+            <!-- COOKIE -->
+
+            <div
+                class="cookie"
+                aria-hidden="true"
+            >
+                🍪
+            </div>
+
+
+            <!-- BRAND -->
 
             <div class="brand">
-
-                <div class="cookie">
-                    🍪
-                </div>
 
                 <h1>
                     Cookie<span>Ku</span>
                 </h1>
 
-                <div class="version">
-                    2.0 ✨
-                </div>
+                <span class="version">
+                    2.0
+                </span>
 
             </div>
 
+
             <p class="tagline">
-                Belajar sambil bermain,<br>
-                asah otak tanpa bikin pusing! 🧠✨
+
+                Belajar sambil bermain,
+                <br>
+
+                asah otak tanpa bikin pusing! ✨
+
             </p>
 
 
-            <!-- WELCOME CARD -->
+            <!-- ==========================
+                 WELCOME CARD
+            =========================== -->
 
             <div class="card welcome-card">
 
-                <div class="cookie-greeting">
-                    🍪
+
+                <div class="welcome-icon">
+                    👋
                 </div>
 
+
                 <h2>
-                    Halo, Pejuang Ilmu! 👋
+                    Halo, Pejuang Ilmu!
                 </h2>
 
-                <p>
-                    Yuk uji kemampuanmu bersama Cookie!
+
+                <p class="welcome-description">
+                    Yuk uji kemampuanmu bersama
+                    Cookie dan lihat seberapa hebat
+                    pengetahuanmu! 🍪
                 </p>
 
 
-                <!-- CLASS -->
+                <!-- =================================
+                     PILIH KELAS
+                ================================== -->
 
                 <div class="selection">
+
 
                     <label>
                         🎓 Pilih Kelas
                     </label>
 
-                    <div class="option-group">
+
+                    <div class="option-group class-options">
+
 
                         <button
                             class="class-btn selected"
-                            data-class="10">
+                            type="button"
+                            data-class="10"
+                        >
+                            <span class="option-icon">
+                                ①
+                            </span>
 
-                            <span>🌱</span>
-                            Kelas X
-
+                            <span>
+                                Kelas X
+                            </span>
                         </button>
+
 
                         <button
                             class="class-btn"
-                            data-class="11">
+                            type="button"
+                            data-class="11"
+                        >
+                            <span class="option-icon">
+                                ②
+                            </span>
 
-                            <span>🚀</span>
-                            Kelas XI
-
+                            <span>
+                                Kelas XI
+                            </span>
                         </button>
+
 
                         <button
                             class="class-btn"
-                            data-class="12">
+                            type="button"
+                            data-class="12"
+                        >
+                            <span class="option-icon">
+                                ③
+                            </span>
 
-                            <span>🏆</span>
-                            Kelas XII
-
+                            <span>
+                                Kelas XII
+                            </span>
                         </button>
+
 
                     </div>
 
 
-                    <!-- CATEGORY -->
+                    <!-- =================================
+                         PILIH MATA PELAJARAN
+                    ================================== -->
 
                     <label>
-                        📚 Pilih Kategori
+                        📚 Pilih Mata Pelajaran
                     </label>
 
-                    <div class="option-group">
+
+                    <div class="option-group subject-options">
+
+
+                        <button
+                            class="subject-btn selected"
+                            type="button"
+                            data-subject="Semua"
+                        >
+                            🎯
+                            <span>
+                                Semua
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Matematika"
+                        >
+                            🧮
+                            <span>
+                                Matematika
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Fisika"
+                        >
+                            ⚡
+                            <span>
+                                Fisika
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Kimia"
+                        >
+                            🧪
+                            <span>
+                                Kimia
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Biologi"
+                        >
+                            🧬
+                            <span>
+                                Biologi
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Bahasa Indonesia"
+                        >
+                            📖
+                            <span>
+                                B. Indonesia
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Bahasa Inggris"
+                        >
+                            🌎
+                            <span>
+                                B. Inggris
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Informatika"
+                        >
+                            💻
+                            <span>
+                                Informatika
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Geografi"
+                        >
+                            🌍
+                            <span>
+                                Geografi
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Sejarah"
+                        >
+                            🏛️
+                            <span>
+                                Sejarah
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Ekonomi"
+                        >
+                            💰
+                            <span>
+                                Ekonomi
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="subject-btn"
+                            type="button"
+                            data-subject="Sosiologi"
+                        >
+                            👥
+                            <span>
+                                Sosiologi
+                            </span>
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- =================================
+                         PILIH KATEGORI
+                    ================================== -->
+
+                    <label>
+                        🧠 Mode Soal
+                    </label>
+
+
+                    <div class="option-group category-options">
+
 
                         <button
                             class="category-btn selected"
-                            data-category="Semua">
-
-                            🎯 Semua
-
+                            type="button"
+                            data-category="Semua"
+                        >
+                            🎯
+                            Semua
                         </button>
+
 
                         <button
                             class="category-btn"
-                            data-category="Pengetahuan Umum">
-
-                            🌎 Umum
-
+                            type="button"
+                            data-category="Pengetahuan Umum"
+                        >
+                            🌎
+                            Umum
                         </button>
+
 
                         <button
                             class="category-btn"
-                            data-category="Sains">
-
-                            🔬 Sains
-
+                            type="button"
+                            data-category="Sains"
+                        >
+                            🔬
+                            Sains
                         </button>
+
 
                     </div>
+
 
                 </div>
 
 
-                <!-- INFO -->
+                <!-- =================================
+                     QUIZ INFO
+                ================================== -->
 
                 <div class="quiz-info">
 
-                    <div class="info-item">
-                        <span>⏱️</span>
-                        <div>
-                            <strong>20 detik</strong>
-                            <small>per soal</small>
-                        </div>
-                    </div>
 
                     <div class="info-item">
-                        <span>⭐</span>
+
+                        <span>
+                            📝
+                        </span>
+
                         <div>
-                            <strong>+10 poin</strong>
-                            <small>jawaban benar</small>
+
+                            <strong>
+                                15 Soal
+                            </strong>
+
+                            <small>
+                                Per sesi
+                            </small>
+
                         </div>
+
                     </div>
 
+
                     <div class="info-item">
-                        <span>🧠</span>
+
+                        <span>
+                            ⏱️
+                        </span>
+
                         <div>
-                            <strong>Asah Otak</strong>
-                            <small>belajar seru</small>
+
+                            <strong>
+                                20 Detik
+                            </strong>
+
+                            <small>
+                                Per soal
+                            </small>
+
                         </div>
+
                     </div>
+
+
+                    <div class="info-item">
+
+                        <span>
+                            🔀
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Acak
+                            </strong>
+
+                            <small>
+                                Setiap bermain
+                            </small>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
 
+                <!-- =================================
+                     START BUTTON
+                ================================== -->
+
                 <button
                     id="startBtn"
-                    class="primary-btn">
+                    class="primary-btn"
+                    type="button"
+                >
 
-                    <span>Mulai Bermain</span>
-                    <span>🚀</span>
+                    <span>
+                        Mulai Bermain
+                    </span>
+
+                    <span>
+                        🚀
+                    </span>
 
                 </button>
+
 
             </div>
 
 
             <!-- FOOTER -->
 
-            <div class="home-footer">
+            <p class="home-footer">
+                Dibuat untuk belajar dengan
+                cara yang menyenangkan 🍪✨
+            </p>
 
-                <span>🍪 Cookie siap menemanimu belajar!</span>
-
-            </div>
 
         </section>
 
 
 
-        <!-- ================= QUIZ ================= -->
+        <!-- =================================================
+             QUIZ SCREEN
+        ================================================== -->
 
-        <section id="quizScreen" class="screen">
+        <section
+            id="quizScreen"
+            class="screen"
+        >
 
 
-            <!-- QUIZ HEADER -->
+            <!-- ==========================
+                 QUIZ HEADER
+            =========================== -->
 
             <div class="quiz-header">
+
 
                 <button
                     id="quitBtn"
                     class="quit-btn"
-                    aria-label="Keluar dari quiz">
-
+                    type="button"
+                    aria-label="Keluar dari quiz"
+                >
                     ✕
-
                 </button>
 
 
                 <div class="progress-container">
 
+
                     <div class="progress-info">
 
                         <span id="questionNumber">
-                            Soal 1
+                            Soal 1 / 15
                         </span>
 
                         <span id="scoreDisplay">
@@ -245,125 +593,158 @@
 
                     <div class="progress-bar">
 
-                        <div id="progressFill"></div>
+                        <div
+                            id="progressFill"
+                            class="progress-fill"
+                        ></div>
 
                     </div>
+
 
                 </div>
 
 
                 <div
                     id="timer"
-                    class="timer">
-
+                    class="timer"
+                >
                     ⏱️ 20
-
                 </div>
+
 
             </div>
 
 
+            <!-- ==========================
+                 QUIZ COOKIE
+            =========================== -->
 
-            <!-- COOKIE -->
-
-            <div class="cookie-small">
+            <div
+                class="cookie-small"
+                aria-hidden="true"
+            >
                 🍪
             </div>
 
 
-
-            <!-- QUESTION CARD -->
+            <!-- ==========================
+                 QUESTION CARD
+            =========================== -->
 
             <div class="card question-card">
 
 
-                <div class="question-top">
+                <div class="question-meta">
 
-                    <span
-                        id="categoryBadge"
-                        class="badge">
-
-                        Pengetahuan Umum
-
-                    </span>
 
                     <span
                         id="classBadge"
-                        class="class-badge">
-
+                        class="badge class-badge"
+                    >
                         Kelas X
-
                     </span>
+
+
+                    <span
+                        id="categoryBadge"
+                        class="badge"
+                    >
+                        Matematika
+                    </span>
+
 
                 </div>
 
 
                 <h2 id="questionText">
-                    Pertanyaan akan muncul di sini
+                    Pertanyaan akan muncul
+                    di sini.
                 </h2>
 
 
+                <!-- ANSWERS -->
+
                 <div
                     id="answers"
-                    class="answers">
+                    class="answers"
+                >
                 </div>
 
+
+                <!-- FEEDBACK -->
 
                 <div
                     id="feedback"
-                    class="feedback">
+                    class="feedback"
+                    aria-live="polite"
+                >
                 </div>
 
 
+                <!-- NEXT -->
+
                 <button
                     id="nextBtn"
-                    class="primary-btn next-btn">
+                    class="primary-btn next-btn"
+                    type="button"
+                >
 
                     Soal Berikutnya
-                    <span>→</span>
+
+                    <span>
+                        →
+                    </span>
 
                 </button>
 
+
             </div>
 
 
-            <div class="quiz-tip">
-                💡 Baca soal dengan teliti sebelum memilih jawaban!
-            </div>
+            <p class="quiz-tip">
+                💡 Baca soal dengan teliti
+                sebelum memilih jawaban!
+            </p>
+
 
         </section>
 
 
 
-        <!-- ================= RESULT ================= -->
+        <!-- =================================================
+             RESULT SCREEN
+        ================================================== -->
 
-        <section id="resultScreen" class="screen">
+        <section
+            id="resultScreen"
+            class="screen"
+        >
 
 
-            <div class="result-cookie">
+            <!-- RESULT COOKIE -->
+
+            <div
+                class="result-cookie"
+                aria-hidden="true"
+            >
                 🍪
             </div>
 
 
-            <div class="result-heading">
-
-                <span class="result-label">
-                    HASIL QUIZ
-                </span>
-
-                <h1>
-                    Quiz Selesai! 🎉
-                </h1>
-
-                <p class="result-message">
-                    Kerja bagus, Pejuang Ilmu!
-                </p>
-
-            </div>
+            <h1>
+                Quiz Selesai!
+                🎉
+            </h1>
 
 
+            <p class="result-message">
+                Kerja bagus, Pejuang Ilmu!
+            </p>
 
-            <!-- RESULT CARD -->
+
+            <!-- ==========================
+                 RESULT CARD
+            =========================== -->
 
             <div class="card result-card">
 
@@ -372,20 +753,21 @@
 
                 <div class="score-circle">
 
-                    <div class="score-inner">
 
-                        <span id="finalScore">
-                            0
-                        </span>
+                    <span id="finalScore">
+                        0
+                    </span>
 
-                        <small>
-                            / 100
-                        </small>
 
-                    </div>
+                    <small>
+                        / 100
+                    </small>
+
 
                 </div>
 
+
+                <!-- RESULT TITLE -->
 
                 <h2 id="resultTitle">
                     Hebat!
@@ -393,21 +775,23 @@
 
 
                 <p id="resultDescription">
-                    Kamu sudah berusaha dengan baik.
+                    Kamu sudah berusaha
+                    dengan baik.
                 </p>
 
 
-
-                <!-- STATS -->
+                <!-- ==========================
+                     STATISTICS
+                =========================== -->
 
                 <div class="result-stats">
 
 
                     <div class="stat correct-stat">
 
-                        <div class="stat-icon">
-                            ✓
-                        </div>
+                        <span class="stat-icon">
+                            ✅
+                        </span>
 
                         <strong id="correctCount">
                             0
@@ -422,9 +806,9 @@
 
                     <div class="stat wrong-stat">
 
-                        <div class="stat-icon">
-                            ✕
-                        </div>
+                        <span class="stat-icon">
+                            ❌
+                        </span>
 
                         <strong id="wrongCount">
                             0
@@ -439,9 +823,9 @@
 
                     <div class="stat total-stat">
 
-                        <div class="stat-icon">
-                            📋
-                        </div>
+                        <span class="stat-icon">
+                            📝
+                        </span>
 
                         <strong id="totalCount">
                             0
@@ -457,42 +841,58 @@
                 </div>
 
 
-
-                <!-- ACTION BUTTONS -->
+                <!-- ==========================
+                     ACTION BUTTONS
+                =========================== -->
 
                 <button
                     id="restartBtn"
-                    class="primary-btn">
+                    class="primary-btn"
+                    type="button"
+                >
 
-                    🔄 Main Lagi
+                    Main Lagi
+
+                    <span>
+                        🔄
+                    </span>
 
                 </button>
 
 
                 <button
                     id="homeBtn"
-                    class="secondary-btn">
+                    class="secondary-btn"
+                    type="button"
+                >
 
-                    🏠 Kembali ke Beranda
+                    🏠
+                    Kembali ke Beranda
 
                 </button>
 
+
             </div>
 
 
-            <div class="result-footer">
-                🍪 Sampai jumpa di quiz berikutnya!
-            </div>
+            <p class="result-footer">
+                Terus belajar,
+                terus berkembang! 🌟
+            </p>
+
 
         </section>
+
 
     </main>
 
 
-
-    <!-- JAVASCRIPT -->
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
 
     <script src="script.js"></script>
 
 </body>
-                            </html>
+
+</html>
