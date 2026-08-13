@@ -6,272 +6,493 @@
 
     <title>CookieKu 2.0 🍪</title>
 
+    <meta name="description"
+        content="CookieKu 2.0 - Aplikasi asah otak dan belajar interaktif untuk siswa SMA">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="background">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-</div>
-
-<main class="app">
-
-    <!-- ================= HOME ================= -->
-
-    <section id="homeScreen" class="screen active">
-
-        <div class="hero-cookie">🍪</div>
-
-        <div class="brand">
-            <h1>Cookie<span>Ku</span></h1>
-            <div class="version">2.0 ✨</div>
-        </div>
-
-        <p class="tagline">
-            Belajar sambil bermain,<br>
-            asah otak tanpa bikin pusing! 🧠
-        </p>
-
-        <div class="card welcome-card">
-
-            <div class="cookie-message">
-                <span class="mini-cookie">🍪</span>
-                <div>
-                    <strong>Halo, Pejuang Ilmu!</strong>
-                    <p>Cookie siap menemani belajarmu hari ini 💛</p>
-                </div>
-            </div>
-
-            <div class="section-title">
-                🎓 Pilih Kelas
-            </div>
-
-            <div class="option-group">
-
-                <button class="class-btn selected" data-class="10">
-                    <strong>X</strong>
-                    <span>Kelas 10</span>
-                </button>
-
-                <button class="class-btn" data-class="11">
-                    <strong>XI</strong>
-                    <span>Kelas 11</span>
-                </button>
-
-                <button class="class-btn" data-class="12">
-                    <strong>XII</strong>
-                    <span>Kelas 12</span>
-                </button>
-
-            </div>
-
-            <div class="section-title">
-                📚 Pilih Kategori
-            </div>
-
-            <div class="category-grid">
-
-                <button class="category-btn selected" data-category="Semua">
-                    🎯
-                    <span>Semua</span>
-                </button>
-
-                <button class="category-btn" data-category="Pengetahuan Umum">
-                    🌎
-                    <span>Umum</span>
-                </button>
-
-                <button class="category-btn" data-category="Biologi">
-                    🧬
-                    <span>Biologi</span>
-                </button>
-
-                <button class="category-btn" data-category="Fisika">
-                    ⚡
-                    <span>Fisika</span>
-                </button>
-
-                <button class="category-btn" data-category="Kimia">
-                    🧪
-                    <span>Kimia</span>
-                </button>
-
-                <button class="category-btn" data-category="Matematika">
-                    📐
-                    <span>Matematika</span>
-                </button>
-
-                <button class="category-btn" data-category="Informatika">
-                    💻
-                    <span>Informatika</span>
-                </button>
-
-            </div>
-
-            <div class="best-score">
-                🏆 Best Score
-                <strong id="bestScore">0</strong>
-            </div>
-
-            <button id="startBtn" class="primary-btn">
-                Mulai Bermain 🚀
-            </button>
-
-        </div>
-
-        <p class="footer-text">
-            CookieKu 2.0 • Belajar jadi lebih seru 🍪✨
-        </p>
-
-    </section>
+    <!-- BACKGROUND -->
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="sparkle sparkle-1">✦</div>
+        <div class="sparkle sparkle-2">✧</div>
+        <div class="sparkle sparkle-3">✦</div>
+    </div>
 
 
-    <!-- ================= QUIZ ================= -->
+    <main class="app">
 
-    <section id="quizScreen" class="screen">
+        <!-- ================= HOME ================= -->
 
-        <div class="quiz-header">
+        <section id="homeScreen" class="screen active">
 
-            <button id="quitBtn" class="icon-btn">
-                ✕
-            </button>
+            <div class="brand">
 
-            <div class="progress-container">
-
-                <div class="progress-info">
-                    <span id="questionNumber">Soal 1 / 10</span>
-                    <span id="scoreDisplay">⭐ 0</span>
+                <div class="cookie">
+                    🍪
                 </div>
 
-                <div class="progress-bar">
-                    <div id="progressFill"></div>
+                <h1>
+                    Cookie<span>Ku</span>
+                </h1>
+
+                <div class="version">
+                    2.0 ✨
                 </div>
 
             </div>
 
-            <div id="timer" class="timer">
-                ⏱️ 20
-            </div>
-
-        </div>
-
-
-        <div class="quiz-cookie">
-            🍪
-        </div>
-
-
-        <div class="card question-card">
-
-            <div class="question-top">
-                <span id="categoryBadge" class="badge">
-                    Biologi
-                </span>
-
-                <span id="difficultyBadge" class="difficulty">
-                    Mudah
-                </span>
-            </div>
-
-            <h2 id="questionText">
-                Pertanyaan akan muncul di sini
-            </h2>
-
-            <div id="answers" class="answers"></div>
-
-            <div id="feedback" class="feedback"></div>
-
-            <button id="nextBtn" class="primary-btn next-btn">
-                Soal Berikutnya →
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= RESULT ================= -->
-
-    <section id="resultScreen" class="screen">
-
-        <div class="result-cookie">
-            🥳🍪
-        </div>
-
-        <h1>Quiz Selesai!</h1>
-
-        <p class="result-message">
-            Cookie bangga sama usaha kamu! ✨
-        </p>
-
-        <div class="card result-card">
-
-            <div class="score-circle">
-
-                <span id="finalScore">0</span>
-
-                <small>/ 100</small>
-
-            </div>
-
-            <h2 id="resultTitle">
-                Hebat!
-            </h2>
-
-            <p id="resultDescription">
-                Kamu sudah berusaha dengan baik.
+            <p class="tagline">
+                Belajar sambil bermain,<br>
+                asah otak tanpa bikin pusing! 🧠✨
             </p>
 
 
-            <div class="result-stats">
+            <!-- WELCOME CARD -->
 
-                <div>
-                    <strong id="correctCount">0</strong>
-                    <span>Benar</span>
+            <div class="card welcome-card">
+
+                <div class="cookie-greeting">
+                    🍪
                 </div>
 
-                <div>
-                    <strong id="wrongCount">0</strong>
-                    <span>Salah</span>
+                <h2>
+                    Halo, Pejuang Ilmu! 👋
+                </h2>
+
+                <p>
+                    Yuk uji kemampuanmu bersama Cookie!
+                </p>
+
+
+                <!-- CLASS -->
+
+                <div class="selection">
+
+                    <label>
+                        🎓 Pilih Kelas
+                    </label>
+
+                    <div class="option-group">
+
+                        <button
+                            class="class-btn selected"
+                            data-class="10">
+
+                            <span>🌱</span>
+                            Kelas X
+
+                        </button>
+
+                        <button
+                            class="class-btn"
+                            data-class="11">
+
+                            <span>🚀</span>
+                            Kelas XI
+
+                        </button>
+
+                        <button
+                            class="class-btn"
+                            data-class="12">
+
+                            <span>🏆</span>
+                            Kelas XII
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <label>
+                        📚 Pilih Kategori
+                    </label>
+
+                    <div class="option-group">
+
+                        <button
+                            class="category-btn selected"
+                            data-category="Semua">
+
+                            🎯 Semua
+
+                        </button>
+
+                        <button
+                            class="category-btn"
+                            data-category="Pengetahuan Umum">
+
+                            🌎 Umum
+
+                        </button>
+
+                        <button
+                            class="category-btn"
+                            data-category="Sains">
+
+                            🔬 Sains
+
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div>
-                    <strong id="totalCount">0</strong>
-                    <span>Total</span>
+
+                <!-- INFO -->
+
+                <div class="quiz-info">
+
+                    <div class="info-item">
+                        <span>⏱️</span>
+                        <div>
+                            <strong>20 detik</strong>
+                            <small>per soal</small>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span>⭐</span>
+                        <div>
+                            <strong>+10 poin</strong>
+                            <small>jawaban benar</small>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span>🧠</span>
+                        <div>
+                            <strong>Asah Otak</strong>
+                            <small>belajar seru</small>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="startBtn"
+                    class="primary-btn">
+
+                    <span>Mulai Bermain</span>
+                    <span>🚀</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="home-footer">
+
+                <span>🍪 Cookie siap menemanimu belajar!</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= QUIZ ================= -->
+
+        <section id="quizScreen" class="screen">
+
+
+            <!-- QUIZ HEADER -->
+
+            <div class="quiz-header">
+
+                <button
+                    id="quitBtn"
+                    class="quit-btn"
+                    aria-label="Keluar dari quiz">
+
+                    ✕
+
+                </button>
+
+
+                <div class="progress-container">
+
+                    <div class="progress-info">
+
+                        <span id="questionNumber">
+                            Soal 1
+                        </span>
+
+                        <span id="scoreDisplay">
+                            ⭐ 0
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div id="progressFill"></div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="timer"
+                    class="timer">
+
+                    ⏱️ 20
+
                 </div>
 
             </div>
 
 
-            <div class="result-best">
-                🏆 Best Score:
-                <strong id="resultBestScore">0</strong>
+
+            <!-- COOKIE -->
+
+            <div class="cookie-small">
+                🍪
             </div>
 
 
-            <button id="restartBtn" class="primary-btn">
-                Main Lagi 🔄
-            </button>
 
-            <button id="homeBtn" class="secondary-btn">
-                Kembali ke Beranda 🏠
-            </button>
+            <!-- QUESTION CARD -->
 
-        </div>
+            <div class="card question-card">
 
-    </section>
 
-</main>
+                <div class="question-top">
 
-<script src="script.js"></script>
+                    <span
+                        id="categoryBadge"
+                        class="badge">
+
+                        Pengetahuan Umum
+
+                    </span>
+
+                    <span
+                        id="classBadge"
+                        class="class-badge">
+
+                        Kelas X
+
+                    </span>
+
+                </div>
+
+
+                <h2 id="questionText">
+                    Pertanyaan akan muncul di sini
+                </h2>
+
+
+                <div
+                    id="answers"
+                    class="answers">
+                </div>
+
+
+                <div
+                    id="feedback"
+                    class="feedback">
+                </div>
+
+
+                <button
+                    id="nextBtn"
+                    class="primary-btn next-btn">
+
+                    Soal Berikutnya
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+
+            <div class="quiz-tip">
+                💡 Baca soal dengan teliti sebelum memilih jawaban!
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section id="resultScreen" class="screen">
+
+
+            <div class="result-cookie">
+                🍪
+            </div>
+
+
+            <div class="result-heading">
+
+                <span class="result-label">
+                    HASIL QUIZ
+                </span>
+
+                <h1>
+                    Quiz Selesai! 🎉
+                </h1>
+
+                <p class="result-message">
+                    Kerja bagus, Pejuang Ilmu!
+                </p>
+
+            </div>
+
+
+
+            <!-- RESULT CARD -->
+
+            <div class="card result-card">
+
+
+                <!-- SCORE -->
+
+                <div class="score-circle">
+
+                    <div class="score-inner">
+
+                        <span id="finalScore">
+                            0
+                        </span>
+
+                        <small>
+                            / 100
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <h2 id="resultTitle">
+                    Hebat!
+                </h2>
+
+
+                <p id="resultDescription">
+                    Kamu sudah berusaha dengan baik.
+                </p>
+
+
+
+                <!-- STATS -->
+
+                <div class="result-stats">
+
+
+                    <div class="stat correct-stat">
+
+                        <div class="stat-icon">
+                            ✓
+                        </div>
+
+                        <strong id="correctCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Benar
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat wrong-stat">
+
+                        <div class="stat-icon">
+                            ✕
+                        </div>
+
+                        <strong id="wrongCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Salah
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat total-stat">
+
+                        <div class="stat-icon">
+                            📋
+                        </div>
+
+                        <strong id="totalCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Total
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ACTION BUTTONS -->
+
+                <button
+                    id="restartBtn"
+                    class="primary-btn">
+
+                    🔄 Main Lagi
+
+                </button>
+
+
+                <button
+                    id="homeBtn"
+                    class="secondary-btn">
+
+                    🏠 Kembali ke Beranda
+
+                </button>
+
+            </div>
+
+
+            <div class="result-footer">
+                🍪 Sampai jumpa di quiz berikutnya!
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
 
 </body>
-</html>
+                            </html>
