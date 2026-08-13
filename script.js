@@ -1,658 +1,81 @@
 /* =========================================================
    COOKIEKU 2.0
-   QUIZ ENGINE + BANK SOAL + SOUND
+   GAME ENGINE + SOUND + RANDOM QUIZ
 ========================================================= */
 
 
 /* =========================================================
-   BANK SOAL
+   DATABASE SOAL
 ========================================================= */
 
 const questions = [
 
-    /* =====================================================
-       KELAS X — MATEMATIKA
-    ===================================================== */
+    /* =========================
+       KELAS X
+    ========================= */
 
     {
         id: 1,
         kelas: "10",
-        mapel: "Matematika",
-        kategori: "Sains",
-        question: "Jika 2³ × 2² = ...",
-        answers: ["16", "32", "64", "128"],
+        kategori: "Pengetahuan Umum",
+        question: "Planet yang dikenal sebagai Planet Merah adalah...",
+        answers: ["Venus", "Mars", "Jupiter", "Saturnus"],
         correct: 1
     },
 
     {
         id: 2,
         kelas: "10",
-        mapel: "Matematika",
         kategori: "Sains",
-        question: "Hasil dari √49 adalah...",
-        answers: ["6", "7", "8", "9"],
-        correct: 1
+        question: "Organ tubuh yang berfungsi memompa darah adalah...",
+        answers: ["Paru-paru", "Ginjal", "Jantung", "Hati"],
+        correct: 2
     },
 
     {
         id: 3,
         kelas: "10",
-        mapel: "Matematika",
-        kategori: "Sains",
-        question: "Jika x + 5 = 12, nilai x adalah...",
-        answers: ["5", "6", "7", "8"],
+        kategori: "Pengetahuan Umum",
+        question: "Benua terbesar di dunia adalah...",
+        answers: ["Afrika", "Eropa", "Asia", "Australia"],
         correct: 2
     },
 
     {
         id: 4,
         kelas: "10",
-        mapel: "Matematika",
         kategori: "Sains",
-        question: "Bentuk sederhana dari 3² adalah...",
-        answers: ["6", "9", "12", "18"],
-        correct: 1
+        question: "Simbol kimia untuk oksigen adalah...",
+        answers: ["O", "Ox", "C", "H"],
+        correct: 0
     },
 
     {
         id: 5,
         kelas: "10",
-        mapel: "Matematika",
-        kategori: "Sains",
-        question: "Nilai dari 5 × 4 + 10 adalah...",
-        answers: ["20", "25", "30", "35"],
-        correct: 2
+        kategori: "Pengetahuan Umum",
+        question: "Indonesia terletak di antara dua benua, yaitu...",
+        answers: [
+            "Asia dan Australia",
+            "Asia dan Eropa",
+            "Afrika dan Australia",
+            "Amerika dan Asia"
+        ],
+        correct: 0
     },
-
-
-    /* =====================================================
-       KELAS X — BIOLOGI
-    ===================================================== */
 
     {
         id: 6,
         kelas: "10",
-        mapel: "Biologi",
         kategori: "Sains",
-        question: "Unit struktural dan fungsional terkecil makhluk hidup adalah...",
-        answers: [
-            "Jaringan",
-            "Organ",
-            "Sel",
-            "Sistem organ"
-        ],
-        correct: 2
+        question: "Satuan SI untuk panjang adalah...",
+        answers: ["Liter", "Meter", "Kilogram", "Sekon"],
+        correct: 1
     },
 
     {
         id: 7,
         kelas: "10",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Organ yang berfungsi melakukan fotosintesis pada tumbuhan adalah...",
-        answers: [
-            "Akar",
-            "Batang",
-            "Kloroplas",
-            "Bunga"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 8,
-        kelas: "10",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Makhluk hidup yang tidak memiliki membran inti disebut...",
-        answers: [
-            "Eukariotik",
-            "Prokariotik",
-            "Multiseluler",
-            "Autotrof"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 9,
-        kelas: "10",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Proses tumbuhan membuat makanan menggunakan cahaya disebut...",
-        answers: [
-            "Respirasi",
-            "Transpirasi",
-            "Fotosintesis",
-            "Ekskresi"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 10,
-        kelas: "10",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Organel yang dikenal sebagai tempat respirasi sel adalah...",
-        answers: [
-            "Ribosom",
-            "Mitokondria",
-            "Nukleus",
-            "Vakuola"
-        ],
-        correct: 1
-    },
-
-
-    /* =====================================================
-       KELAS X — FISIKA
-    ===================================================== */
-
-    {
-        id: 11,
-        kelas: "10",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Satuan SI untuk panjang adalah...",
-        answers: [
-            "Kilogram",
-            "Sekon",
-            "Meter",
-            "Newton"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 12,
-        kelas: "10",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Besaran yang memiliki nilai dan arah disebut...",
-        answers: [
-            "Skalar",
-            "Vektor",
-            "Pokok",
-            "Turunan"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 13,
-        kelas: "10",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Satuan SI untuk waktu adalah...",
-        answers: [
-            "Menit",
-            "Jam",
-            "Sekon",
-            "Hari"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 14,
-        kelas: "10",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Alat untuk mengukur suhu disebut...",
-        answers: [
-            "Barometer",
-            "Termometer",
-            "Higrometer",
-            "Amperemeter"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 15,
-        kelas: "10",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Satuan SI untuk massa adalah...",
-        answers: [
-            "Gram",
-            "Kilogram",
-            "Newton",
-            "Joule"
-        ],
-        correct: 1
-    },
-
-
-    /* =====================================================
-       KELAS X — KIMIA
-    ===================================================== */
-
-    {
-        id: 16,
-        kelas: "10",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Lambang kimia untuk oksigen adalah...",
-        answers: ["O", "Ox", "C", "Og"],
-        correct: 0
-    },
-
-    {
-        id: 17,
-        kelas: "10",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Rumus kimia air adalah...",
-        answers: ["CO₂", "O₂", "H₂O", "NaCl"],
-        correct: 2
-    },
-
-    {
-        id: 18,
-        kelas: "10",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Partikel penyusun atom yang bermuatan negatif adalah...",
-        answers: [
-            "Proton",
-            "Neutron",
-            "Elektron",
-            "Nukleon"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 19,
-        kelas: "10",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Nomor atom menunjukkan jumlah...",
-        answers: [
-            "Neutron",
-            "Proton",
-            "Kulit",
-            "Massa"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 20,
-        kelas: "10",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Zat yang memiliki pH kurang dari 7 bersifat...",
-        answers: [
-            "Basa",
-            "Netral",
-            "Asam",
-            "Garam"
-        ],
-        correct: 2
-    },
-
-
-    /* =====================================================
-       KELAS XI — FISIKA
-    ===================================================== */
-
-    {
-        id: 21,
-        kelas: "11",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Satuan SI untuk gaya adalah...",
-        answers: [
-            "Joule",
-            "Newton",
-            "Watt",
-            "Pascal"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 22,
-        kelas: "11",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Energi yang dimiliki benda karena geraknya disebut energi...",
-        answers: [
-            "Potensial",
-            "Kinetik",
-            "Kimia",
-            "Nuklir"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 23,
-        kelas: "11",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Rumus umum energi kinetik adalah...",
-        answers: [
-            "mgh",
-            "½mv²",
-            "F/s",
-            "m/v"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 24,
-        kelas: "11",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Perubahan energi dari listrik menjadi cahaya terjadi pada...",
-        answers: [
-            "Lampu",
-            "Kipas",
-            "Setrika",
-            "Kulkas"
-        ],
-        correct: 0
-    },
-
-    {
-        id: 25,
-        kelas: "11",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Satuan SI untuk energi adalah...",
-        answers: [
-            "Newton",
-            "Watt",
-            "Joule",
-            "Volt"
-        ],
-        correct: 2
-    },
-
-
-    /* =====================================================
-       KELAS XI — BIOLOGI
-    ===================================================== */
-
-    {
-        id: 26,
-        kelas: "11",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Organ yang berfungsi memompa darah adalah...",
-        answers: [
-            "Paru-paru",
-            "Ginjal",
-            "Jantung",
-            "Hati"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 27,
-        kelas: "11",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Tempat pertukaran gas pada paru-paru adalah...",
-        answers: [
-            "Bronkus",
-            "Trakea",
-            "Alveolus",
-            "Laring"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 28,
-        kelas: "11",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Sel darah merah disebut...",
-        answers: [
-            "Leukosit",
-            "Eritrosit",
-            "Trombosit",
-            "Limfosit"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 29,
-        kelas: "11",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Bagian sel yang mengatur aktivitas sel adalah...",
-        answers: [
-            "Ribosom",
-            "Nukleus",
-            "Vakuola",
-            "Dinding sel"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 30,
-        kelas: "11",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Protein dalam darah yang membantu mengangkut oksigen adalah...",
-        answers: [
-            "Hemoglobin",
-            "Insulin",
-            "Keratin",
-            "Kolagen"
-        ],
-        correct: 0
-    },
-
-
-    /* =====================================================
-       KELAS XI — KIMIA
-    ===================================================== */
-
-    {
-        id: 31,
-        kelas: "11",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Ikatan yang terbentuk karena serah terima elektron disebut...",
-        answers: [
-            "Ikatan ion",
-            "Ikatan kovalen",
-            "Ikatan logam",
-            "Ikatan hidrogen"
-        ],
-        correct: 0
-    },
-
-    {
-        id: 32,
-        kelas: "11",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Gas yang paling banyak menyusun atmosfer Bumi adalah...",
-        answers: [
-            "Oksigen",
-            "Nitrogen",
-            "Karbon dioksida",
-            "Hidrogen"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 33,
-        kelas: "11",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Proses pelepasan panas ke lingkungan disebut...",
-        answers: [
-            "Endoterm",
-            "Eksoterm",
-            "Netralisasi",
-            "Ionisasi"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 34,
-        kelas: "11",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Larutan dengan pH = 7 bersifat...",
-        answers: [
-            "Asam",
-            "Basa",
-            "Netral",
-            "Korosif"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 35,
-        kelas: "11",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Hukum kekekalan massa dikemukakan oleh...",
-        answers: [
-            "Dalton",
-            "Lavoisier",
-            "Proust",
-            "Avogadro"
-        ],
-        correct: 1
-    },
-
-
-    /* =====================================================
-       KELAS XII — SAINS
-    ===================================================== */
-
-    {
-        id: 36,
-        kelas: "12",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Gelombang yang membutuhkan medium untuk merambat disebut...",
-        answers: [
-            "Gelombang mekanik",
-            "Gelombang elektromagnetik",
-            "Gelombang cahaya",
-            "Gelombang radio"
-        ],
-        correct: 0
-    },
-
-    {
-        id: 37,
-        kelas: "12",
-        mapel: "Fisika",
-        kategori: "Sains",
-        question: "Gelombang elektromagnetik dapat merambat melalui...",
-        answers: [
-            "Hanya air",
-            "Hanya udara",
-            "Ruang hampa",
-            "Hanya benda padat"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 38,
-        kelas: "12",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Molekul yang membawa informasi genetik adalah...",
-        answers: [
-            "ATP",
-            "DNA",
-            "Glukosa",
-            "Lipid"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 39,
-        kelas: "12",
-        mapel: "Biologi",
-        kategori: "Sains",
-        question: "Unit dasar pewarisan sifat disebut...",
-        answers: [
-            "Gen",
-            "Sel",
-            "Jaringan",
-            "Organ"
-        ],
-        correct: 0
-    },
-
-    {
-        id: 40,
-        kelas: "12",
-        mapel: "Kimia",
-        kategori: "Sains",
-        question: "Reaksi yang menghasilkan zat baru dengan sifat berbeda disebut...",
-        answers: [
-            "Perubahan fisika",
-            "Perubahan kimia",
-            "Perubahan wujud",
-            "Pelarutan"
-        ],
-        correct: 1
-    },
-
-
-    /* =====================================================
-       PENGETAHUAN UMUM
-    ===================================================== */
-
-    {
-        id: 41,
-        kelas: "10",
-        mapel: "Pengetahuan Umum",
-        kategori: "Pengetahuan Umum",
-        question: "Benua terbesar di dunia adalah...",
-        answers: [
-            "Afrika",
-            "Eropa",
-            "Asia",
-            "Australia"
-        ],
-        correct: 2
-    },
-
-    {
-        id: 42,
-        kelas: "10",
-        mapel: "Pengetahuan Umum",
-        kategori: "Pengetahuan Umum",
-        question: "Planet yang dikenal sebagai Planet Merah adalah...",
-        answers: [
-            "Venus",
-            "Mars",
-            "Jupiter",
-            "Saturnus"
-        ],
-        correct: 1
-    },
-
-    {
-        id: 43,
-        kelas: "11",
-        mapel: "Pengetahuan Umum",
         kategori: "Pengetahuan Umum",
         question: "Lambang negara Indonesia adalah...",
         answers: [
@@ -665,24 +88,333 @@ const questions = [
     },
 
     {
-        id: 44,
-        kelas: "11",
-        mapel: "Pengetahuan Umum",
+        id: 8,
+        kelas: "10",
+        kategori: "Sains",
+        question: "Zat yang memiliki pH kurang dari 7 bersifat...",
+        answers: ["Basa", "Netral", "Asam", "Garam"],
+        correct: 2
+    },
+
+    {
+        id: 9,
+        kelas: "10",
         kategori: "Pengetahuan Umum",
-        question: "Proklamasi Kemerdekaan Indonesia dibacakan pada tahun...",
+        question: "Planet terbesar dalam tata surya adalah...",
+        answers: ["Bumi", "Mars", "Jupiter", "Venus"],
+        correct: 2
+    },
+
+    {
+        id: 10,
+        kelas: "10",
+        kategori: "Sains",
+        question: "Proses tumbuhan membuat makanan sendiri disebut...",
         answers: [
-            "1942",
-            "1945",
-            "1948",
-            "1950"
+            "Respirasi",
+            "Fotosintesis",
+            "Transpirasi",
+            "Ekskresi"
         ],
         correct: 1
     },
 
     {
-        id: 45,
+        id: 11,
+        kelas: "10",
+        kategori: "Pengetahuan Umum",
+        question: "Bahasa nasional Indonesia adalah...",
+        answers: [
+            "Bahasa Jawa",
+            "Bahasa Sunda",
+            "Bahasa Indonesia",
+            "Bahasa Melayu"
+        ],
+        correct: 2
+    },
+
+    {
+        id: 12,
+        kelas: "10",
+        kategori: "Sains",
+        question: "Gaya yang menyebabkan benda jatuh ke permukaan Bumi adalah...",
+        answers: [
+            "Gaya magnet",
+            "Gaya gravitasi",
+            "Gaya listrik",
+            "Gaya gesek"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 13,
+        kelas: "10",
+        kategori: "Pengetahuan Umum",
+        question: "Proklamasi Kemerdekaan Indonesia dibacakan pada...",
+        answers: [
+            "17 Agustus 1945",
+            "10 November 1945",
+            "1 Juni 1945",
+            "28 Oktober 1928"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 14,
+        kelas: "10",
+        kategori: "Sains",
+        question: "Satuan SI untuk massa adalah...",
+        answers: ["Gram", "Kilogram", "Pound", "Ton"],
+        correct: 1
+    },
+
+    {
+        id: 15,
+        kelas: "10",
+        kategori: "Pengetahuan Umum",
+        question: "Semboyan bangsa Indonesia adalah...",
+        answers: [
+            "Tut Wuri Handayani",
+            "Bhinneka Tunggal Ika",
+            "Ing Ngarsa Sung Tuladha",
+            "Merdeka Belajar"
+        ],
+        correct: 1
+    },
+
+
+    /* =========================
+       KELAS XI
+    ========================= */
+
+    {
+        id: 16,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Satuan SI untuk gaya adalah...",
+        answers: ["Joule", "Newton", "Watt", "Pascal"],
+        correct: 1
+    },
+
+    {
+        id: 17,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Perubahan zat dari cair menjadi gas disebut...",
+        answers: ["Mencair", "Membeku", "Menguap", "Mengembun"],
+        correct: 2
+    },
+
+    {
+        id: 18,
+        kelas: "11",
+        kategori: "Pengetahuan Umum",
+        question: "Benua terluas di dunia adalah...",
+        answers: ["Asia", "Afrika", "Eropa", "Australia"],
+        correct: 0
+    },
+
+    {
+        id: 19,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Gas yang paling banyak terdapat di atmosfer Bumi adalah...",
+        answers: [
+            "Oksigen",
+            "Nitrogen",
+            "Karbon dioksida",
+            "Hidrogen"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 20,
+        kelas: "11",
+        kategori: "Pengetahuan Umum",
+        question: "Lambang negara Indonesia adalah...",
+        answers: [
+            "Garuda Pancasila",
+            "Burung Elang",
+            "Rajawali",
+            "Cendrawasih"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 21,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Energi yang dimiliki benda karena gerakannya disebut...",
+        answers: [
+            "Energi potensial",
+            "Energi kinetik",
+            "Energi kimia",
+            "Energi nuklir"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 22,
+        kelas: "11",
+        kategori: "Pengetahuan Umum",
+        question: "Planet yang memiliki cincin paling terkenal adalah...",
+        answers: [
+            "Mars",
+            "Bumi",
+            "Saturnus",
+            "Merkurius"
+        ],
+        correct: 2
+    },
+
+    {
+        id: 23,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Alat untuk mengukur suhu disebut...",
+        answers: [
+            "Barometer",
+            "Termometer",
+            "Higrometer",
+            "Anemometer"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 24,
+        kelas: "11",
+        kategori: "Pengetahuan Umum",
+        question: "Pulau terbesar di Indonesia yang seluruh wilayahnya berada di Indonesia adalah...",
+        answers: [
+            "Jawa",
+            "Sumatra",
+            "Papua",
+            "Kalimantan"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 25,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Bagian sel yang mengendalikan aktivitas sel adalah...",
+        answers: [
+            "Ribosom",
+            "Nukleus",
+            "Dinding sel",
+            "Vakuola"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 26,
+        kelas: "11",
+        kategori: "Pengetahuan Umum",
+        question: "Sumpah Pemuda diperingati setiap...",
+        answers: [
+            "20 Mei",
+            "17 Agustus",
+            "28 Oktober",
+            "10 November"
+        ],
+        correct: 2
+    },
+
+    {
+        id: 27,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Perubahan wujud gas menjadi cair disebut...",
+        answers: [
+            "Menguap",
+            "Menyublim",
+            "Mengembun",
+            "Membeku"
+        ],
+        correct: 2
+    },
+
+    {
+        id: 28,
+        kelas: "11",
+        kategori: "Pengetahuan Umum",
+        question: "Samudra terluas di dunia adalah...",
+        answers: [
+            "Atlantik",
+            "Pasifik",
+            "Hindia",
+            "Arktik"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 29,
+        kelas: "11",
+        kategori: "Sains",
+        question: "Hukum Newton pertama berkaitan dengan...",
+        answers: [
+            "Kelembaman",
+            "Aksi dan reaksi",
+            "Percepatan",
+            "Energi"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 30,
+        kelas: "11",
+        kategori: "Pengetahuan Umum",
+        question: "Pusat pemerintahan Indonesia saat ini berada di...",
+        answers: [
+            "Jakarta",
+            "Bandung",
+            "Ibu Kota Nusantara",
+            "Surabaya"
+        ],
+        correct: 2
+    },
+
+
+    /* =========================
+       KELAS XII
+    ========================= */
+
+    {
+        id: 31,
         kelas: "12",
-        mapel: "Pengetahuan Umum",
+        kategori: "Sains",
+        question: "Rumus kimia air adalah...",
+        answers: ["CO₂", "O₂", "H₂O", "NaCl"],
+        correct: 2
+    },
+
+    {
+        id: 32,
+        kelas: "12",
+        kategori: "Sains",
+        question: "Bagian sel yang mengatur seluruh aktivitas sel adalah...",
+        answers: [
+            "Ribosom",
+            "Nukleus",
+            "Membran sel",
+            "Mitokondria"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 33,
+        kelas: "12",
         kategori: "Pengetahuan Umum",
         question: "Planet terbesar dalam tata surya adalah...",
         answers: [
@@ -692,6 +424,159 @@ const questions = [
             "Neptunus"
         ],
         correct: 2
+    },
+
+    {
+        id: 34,
+        kelas: "12",
+        kategori: "Sains",
+        question: "Energi yang dimiliki benda karena gerakannya disebut energi...",
+        answers: [
+            "Potensial",
+            "Kinetik",
+            "Kimia",
+            "Nuklir"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 35,
+        kelas: "12",
+        kategori: "Pengetahuan Umum",
+        question: "Proklamasi Kemerdekaan Indonesia dibacakan pada tahun...",
+        answers: ["1942", "1945", "1949", "1950"],
+        correct: 1
+    },
+
+    {
+        id: 36,
+        kelas: "12",
+        kategori: "Sains",
+        question: "Molekul pembawa informasi genetik adalah...",
+        answers: ["DNA", "ATP", "Glukosa", "Air"],
+        correct: 0
+    },
+
+    {
+        id: 37,
+        kelas: "12",
+        kategori: "Pengetahuan Umum",
+        question: "Tokoh yang membacakan Proklamasi Kemerdekaan Indonesia adalah...",
+        answers: [
+            "Soekarno",
+            "Mohammad Hatta",
+            "Sutan Sjahrir",
+            "Ahmad Yani"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 38,
+        kelas: "12",
+        kategori: "Sains",
+        question: "Organel yang dikenal sebagai tempat respirasi sel adalah...",
+        answers: [
+            "Ribosom",
+            "Mitokondria",
+            "Nukleus",
+            "Vakuola"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 39,
+        kelas: "12",
+        kategori: "Pengetahuan Umum",
+        question: "Bhinneka Tunggal Ika memiliki arti...",
+        answers: [
+            "Bersatu kita teguh",
+            "Berbeda-beda tetapi tetap satu",
+            "Keadilan bagi seluruh rakyat",
+            "Persatuan Indonesia"
+        ],
+        correct: 1
+    },
+
+    {
+        id: 40,
+        kelas: "12",
+        kategori: "Sains",
+        question: "Satuan SI untuk energi adalah...",
+        answers: ["Newton", "Joule", "Watt", "Pascal"],
+        correct: 1
+    },
+
+    {
+        id: 41,
+        kelas: "12",
+        kategori: "Pengetahuan Umum",
+        question: "Hari Pendidikan Nasional diperingati setiap...",
+        answers: [
+            "2 Mei",
+            "20 Mei",
+            "28 Oktober",
+            "10 November"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 42,
+        kelas: "12",
+        kategori: "Sains",
+        question: "Hormon yang berfungsi mengatur kadar gula darah adalah...",
+        answers: [
+            "Insulin",
+            "Adrenalin",
+            "Tiroksin",
+            "Estrogen"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 43,
+        kelas: "12",
+        kategori: "Pengetahuan Umum",
+        question: "Lagu kebangsaan Indonesia adalah...",
+        answers: [
+            "Indonesia Raya",
+            "Bagimu Negeri",
+            "Garuda Pancasila",
+            "Hari Merdeka"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 44,
+        kelas: "12",
+        kategori: "Sains",
+        question: "Proses pembelahan sel untuk pertumbuhan disebut...",
+        answers: [
+            "Mitosis",
+            "Meiosis",
+            "Fertilisasi",
+            "Mutasi"
+        ],
+        correct: 0
+    },
+
+    {
+        id: 45,
+        kelas: "12",
+        kategori: "Pengetahuan Umum",
+        question: "Dasar negara Indonesia adalah...",
+        answers: [
+            "UUD 1945",
+            "Pancasila",
+            "Bhinneka Tunggal Ika",
+            "NKRI"
+        ],
+        correct: 1
     }
 
 ];
@@ -701,37 +586,78 @@ const questions = [
    ELEMENT HTML
 ========================================================= */
 
-const homeScreen = document.getElementById("homeScreen");
-const quizScreen = document.getElementById("quizScreen");
-const resultScreen = document.getElementById("resultScreen");
+const homeScreen =
+    document.getElementById("homeScreen");
 
-const startBtn = document.getElementById("startBtn");
-const nextBtn = document.getElementById("nextBtn");
+const quizScreen =
+    document.getElementById("quizScreen");
 
-const questionText = document.getElementById("questionText");
-const answersContainer = document.getElementById("answers");
+const resultScreen =
+    document.getElementById("resultScreen");
 
-const questionNumber = document.getElementById("questionNumber");
-const scoreDisplay = document.getElementById("scoreDisplay");
-const progressFill = document.getElementById("progressFill");
 
-const timerElement = document.getElementById("timer");
-const feedback = document.getElementById("feedback");
+const startBtn =
+    document.getElementById("startBtn");
 
-const categoryBadge = document.getElementById("categoryBadge");
-const classBadge = document.getElementById("classBadge");
+const nextBtn =
+    document.getElementById("nextBtn");
 
-const finalScore = document.getElementById("finalScore");
-const correctCount = document.getElementById("correctCount");
-const wrongCount = document.getElementById("wrongCount");
-const totalCount = document.getElementById("totalCount");
 
-const resultTitle = document.getElementById("resultTitle");
-const resultDescription = document.getElementById("resultDescription");
+const questionText =
+    document.getElementById("questionText");
 
-const restartBtn = document.getElementById("restartBtn");
-const homeBtn = document.getElementById("homeBtn");
-const quitBtn = document.getElementById("quitBtn");
+const answersContainer =
+    document.getElementById("answers");
+
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const scoreDisplay =
+    document.getElementById("scoreDisplay");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+
+const timerElement =
+    document.getElementById("timer");
+
+const feedback =
+    document.getElementById("feedback");
+
+const categoryBadge =
+    document.getElementById("categoryBadge");
+
+
+const finalScore =
+    document.getElementById("finalScore");
+
+const correctCount =
+    document.getElementById("correctCount");
+
+const wrongCount =
+    document.getElementById("wrongCount");
+
+const totalCount =
+    document.getElementById("totalCount");
+
+
+const resultTitle =
+    document.getElementById("resultTitle");
+
+const resultDescription =
+    document.getElementById("resultDescription");
+
+
+const restartBtn =
+    document.getElementById("restartBtn");
+
+const homeBtn =
+    document.getElementById("homeBtn");
+
+const quitBtn =
+    document.getElementById("quitBtn");
 
 
 /* =========================================================
@@ -739,6 +665,7 @@ const quitBtn = document.getElementById("quitBtn");
 ========================================================= */
 
 let selectedClass = "10";
+
 let selectedCategory = "Semua";
 
 let quizQuestions = [];
@@ -746,476 +673,25 @@ let quizQuestions = [];
 let currentQuestion = 0;
 
 let score = 0;
+
 let correctAnswers = 0;
+
 let wrongAnswers = 0;
 
-let timer = null;
+let timer;
+
 let timeLeft = 20;
 
 let answered = false;
 
 
 /* =========================================================
-   SOUND ENGINE
-========================================================= */
-
-let audioCtx = null;
-
-let soundEnabled = true;
-
-let musicEnabled = true;
-
-let musicTimer = null;
-
-let musicStep = 0;
-
-
-/* =========================================================
-   CREATE AUDIO
-========================================================= */
-
-function initAudio() {
-
-    if (!audioCtx) {
-
-        audioCtx =
-            new (
-                window.AudioContext ||
-                window.webkitAudioContext
-            )();
-
-    }
-
-    if (audioCtx.state === "suspended") {
-
-        audioCtx.resume();
-
-    }
-
-}
-
-
-/* =========================================================
-   BASIC SOUND
-========================================================= */
-
-function playTone(
-    frequency,
-    duration = 0.12,
-    type = "sine",
-    volume = 0.04
-) {
-
-    if (!soundEnabled) return;
-
-    initAudio();
-
-    const oscillator =
-        audioCtx.createOscillator();
-
-    const gain =
-        audioCtx.createGain();
-
-    oscillator.type = type;
-
-    oscillator.frequency.value =
-        frequency;
-
-    gain.gain.setValueAtTime(
-        volume,
-        audioCtx.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        0.001,
-        audioCtx.currentTime + duration
-    );
-
-    oscillator.connect(gain);
-
-    gain.connect(audioCtx.destination);
-
-    oscillator.start();
-
-    oscillator.stop(
-        audioCtx.currentTime + duration
-    );
-
-}
-
-
-/* =========================================================
-   SOUND: CLICK
-========================================================= */
-
-function soundClick() {
-
-    playTone(
-        600,
-        0.07,
-        "sine",
-        0.035
-    );
-
-}
-
-
-/* =========================================================
-   SOUND: CORRECT
-========================================================= */
-
-function soundCorrect() {
-
-    if (!soundEnabled) return;
-
-    initAudio();
-
-    playTone(
-        523.25,
-        0.12,
-        "sine",
-        0.05
-    );
-
-    setTimeout(() => {
-
-        playTone(
-            659.25,
-            0.14,
-            "sine",
-            0.05
-        );
-
-    }, 100);
-
-    setTimeout(() => {
-
-        playTone(
-            783.99,
-            0.18,
-            "sine",
-            0.05
-        );
-
-    }, 200);
-
-}
-
-
-/* =========================================================
-   SOUND: WRONG
-========================================================= */
-
-function soundWrong() {
-
-    if (!soundEnabled) return;
-
-    playTone(
-        220,
-        0.18,
-        "triangle",
-        0.05
-    );
-
-    setTimeout(() => {
-
-        playTone(
-            160,
-            0.25,
-            "triangle",
-            0.04
-        );
-
-    }, 130);
-
-}
-
-
-/* =========================================================
-   SOUND: TIME OUT
-========================================================= */
-
-function soundTimeOut() {
-
-    if (!soundEnabled) return;
-
-    playTone(
-        350,
-        0.15,
-        "square",
-        0.035
-    );
-
-    setTimeout(() => {
-
-        playTone(
-            250,
-            0.25,
-            "square",
-            0.035
-        );
-
-    }, 160);
-
-}
-
-
-/* =========================================================
-   SOUND: NEXT
-========================================================= */
-
-function soundNext() {
-
-    playTone(
-        500,
-        0.07,
-        "sine",
-        0.025
-    );
-
-}
-
-
-/* =========================================================
-   SOUND: FINISH
-========================================================= */
-
-function soundFinish() {
-
-    if (!soundEnabled) return;
-
-    const notes = [
-        523.25,
-        659.25,
-        783.99,
-        1046.50
-    ];
-
-    notes.forEach((note, index) => {
-
-        setTimeout(() => {
-
-            playTone(
-                note,
-                0.22,
-                "sine",
-                0.05
-            );
-
-        }, index * 120);
-
-    });
-
-}
-
-
-/* =========================================================
-   BACKGROUND MUSIC
-========================================================= */
-
-function startMusic() {
-
-    if (!musicEnabled) return;
-
-    initAudio();
-
-    stopMusic();
-
-    const melody = [
-        261.63,
-        329.63,
-        392.00,
-        329.63,
-        293.66,
-        349.23,
-        440.00,
-        349.23
-    ];
-
-    musicStep = 0;
-
-    musicTimer =
-        setInterval(() => {
-
-            if (!musicEnabled) return;
-
-            playMusicNote(
-                melody[musicStep]
-            );
-
-            musicStep++;
-
-            if (
-                musicStep >=
-                melody.length
-            ) {
-
-                musicStep = 0;
-
-            }
-
-        }, 650);
-
-}
-
-
-/* =========================================================
-   MUSIC NOTE
-========================================================= */
-
-function playMusicNote(frequency) {
-
-    if (!audioCtx || !musicEnabled) return;
-
-    const oscillator =
-        audioCtx.createOscillator();
-
-    const gain =
-        audioCtx.createGain();
-
-    oscillator.type = "sine";
-
-    oscillator.frequency.value =
-        frequency;
-
-    gain.gain.setValueAtTime(
-        0.008,
-        audioCtx.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        0.001,
-        audioCtx.currentTime + 0.35
-    );
-
-    oscillator.connect(gain);
-
-    gain.connect(audioCtx.destination);
-
-    oscillator.start();
-
-    oscillator.stop(
-        audioCtx.currentTime + 0.35
-    );
-
-}
-
-
-/* =========================================================
-   STOP MUSIC
-========================================================= */
-
-function stopMusic() {
-
-    if (musicTimer) {
-
-        clearInterval(musicTimer);
-
-        musicTimer = null;
-
-    }
-
-}
-
-
-/* =========================================================
-   SOUND BUTTON
-========================================================= */
-
-function createSoundButton() {
-
-    const button =
-        document.createElement("button");
-
-    button.id = "soundToggle";
-
-    button.textContent =
-        soundEnabled ? "🔊" : "🔇";
-
-    button.title =
-        "Nyalakan / matikan suara";
-
-    button.style.position =
-        "fixed";
-
-    button.style.right =
-        "18px";
-
-    button.style.bottom =
-        "18px";
-
-    button.style.width =
-        "45px";
-
-    button.style.height =
-        "45px";
-
-    button.style.border =
-        "none";
-
-    button.style.borderRadius =
-        "50%";
-
-    button.style.background =
-        "white";
-
-    button.style.cursor =
-        "pointer";
-
-    button.style.fontSize =
-        "20px";
-
-    button.style.boxShadow =
-        "0 8px 25px rgba(107,69,52,.15)";
-
-    button.style.zIndex =
-        "1000";
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            soundEnabled =
-                !soundEnabled;
-
-            musicEnabled =
-                soundEnabled;
-
-            button.textContent =
-                soundEnabled
-                    ? "🔊"
-                    : "🔇";
-
-            if (soundEnabled) {
-
-                initAudio();
-
-                startMusic();
-
-                soundClick();
-
-            } else {
-
-                stopMusic();
-
-            }
-
-        }
-    );
-
-    document.body.appendChild(button);
-
-}
-
-
-/* =========================================================
    SHUFFLE
 ========================================================= */
 
-function shuffleArray(array) {
+function shuffle(array) {
 
-    const newArray =
-        [...array];
+    const newArray = [...array];
 
     for (
         let i = newArray.length - 1;
@@ -1244,7 +720,7 @@ function shuffleArray(array) {
 
 
 /* =========================================================
-   SELECT CLASS
+   PILIH KELAS
 ========================================================= */
 
 document
@@ -1255,21 +731,13 @@ document
             "click",
             () => {
 
-                soundClick();
-
                 document
                     .querySelectorAll(".class-btn")
-                    .forEach(btn => {
+                    .forEach(btn =>
+                        btn.classList.remove("selected")
+                    );
 
-                        btn.classList.remove(
-                            "selected"
-                        );
-
-                    });
-
-                button.classList.add(
-                    "selected"
-                );
+                button.classList.add("selected");
 
                 selectedClass =
                     button.dataset.class;
@@ -1281,7 +749,7 @@ document
 
 
 /* =========================================================
-   SELECT CATEGORY
+   PILIH KATEGORI
 ========================================================= */
 
 document
@@ -1292,21 +760,13 @@ document
             "click",
             () => {
 
-                soundClick();
-
                 document
                     .querySelectorAll(".category-btn")
-                    .forEach(btn => {
+                    .forEach(btn =>
+                        btn.classList.remove("selected")
+                    );
 
-                        btn.classList.remove(
-                            "selected"
-                        );
-
-                    });
-
-                button.classList.add(
-                    "selected"
-                );
+                button.classList.add("selected");
 
                 selectedCategory =
                     button.dataset.category;
@@ -1329,10 +789,6 @@ startBtn.addEventListener(
 
 function startQuiz() {
 
-    initAudio();
-
-    soundClick();
-
     const filtered =
         questions.filter(question => {
 
@@ -1341,8 +797,7 @@ function startQuiz() {
 
             const categoryMatch =
                 selectedCategory === "Semua" ||
-                question.kategori ===
-                selectedCategory;
+                question.kategori === selectedCategory;
 
             return (
                 classMatch &&
@@ -1364,26 +819,11 @@ function startQuiz() {
 
 
     /*
-       SOAL DIACAK
+       Soal diacak setiap permainan
     */
 
     quizQuestions =
-        shuffleArray(filtered);
-
-
-    /*
-       BATASI JUMLAH SOAL
-       maksimal 15 per sesi
-    */
-
-    quizQuestions =
-        quizQuestions.slice(
-            0,
-            Math.min(
-                15,
-                quizQuestions.length
-            )
-        );
+        shuffle(filtered);
 
 
     currentQuestion = 0;
@@ -1395,13 +835,9 @@ function startQuiz() {
     wrongAnswers = 0;
 
 
-    showScreen(
-        quizScreen
-    );
+    showScreen(quizScreen);
 
     showQuestion();
-
-    startMusic();
 
 }
 
@@ -1418,8 +854,7 @@ function showQuestion() {
 
     feedback.textContent = "";
 
-    nextBtn.style.display =
-        "none";
+    nextBtn.style.display = "none";
 
 
     const question =
@@ -1435,30 +870,21 @@ function showQuestion() {
 
 
     categoryBadge.textContent =
-        question.mapel;
-
-
-    if (classBadge) {
-
-        classBadge.textContent =
-            `Kelas ${question.kelas}`;
-
-    }
+        question.kategori;
 
 
     questionText.textContent =
         question.question;
 
 
-    answersContainer.innerHTML =
-        "";
+    answersContainer.innerHTML = "";
 
 
     /*
-       PILIHAN JAWABAN JUGA DIACAK
+       Jawaban juga diacak
     */
 
-    const answerObjects =
+    const answerData =
         question.answers.map(
             (answer, index) => ({
                 text: answer,
@@ -1468,55 +894,43 @@ function showQuestion() {
 
 
     const shuffledAnswers =
-        shuffleArray(
-            answerObjects
-        );
+        shuffle(answerData);
 
 
     shuffledAnswers.forEach(
-        answerObject => {
+        (answer, index) => {
 
             const button =
-                document.createElement(
-                    "button"
-                );
+                document.createElement("button");
+
 
             button.className =
                 "answer-btn";
 
+
             button.textContent =
-                `${String.fromCharCode(
-                    65 +
-                    answersContainer.children.length
-                )}. ${answerObject.text}`;
+                `${String.fromCharCode(65 + index)}. ${answer.text}`;
 
 
             button.addEventListener(
                 "click",
-                () => {
-
+                () =>
                     checkAnswer(
-                        answerObject.originalIndex,
+                        answer.originalIndex,
                         button
-                    );
-
-                }
+                    )
             );
 
 
-            answersContainer.appendChild(
-                button
-            );
+            answersContainer.appendChild(button);
 
         }
     );
 
 
     const progress =
-        (
-            currentQuestion /
-            quizQuestions.length
-        ) * 100;
+        (currentQuestion /
+            quizQuestions.length) * 100;
 
 
     progressFill.style.width =
@@ -1534,6 +948,8 @@ function showQuestion() {
 
 function startTimer() {
 
+    clearInterval(timer);
+
     timeLeft = 20;
 
     timerElement.textContent =
@@ -1545,35 +961,32 @@ function startTimer() {
 
 
     timer =
-        setInterval(
-            () => {
+        setInterval(() => {
 
-                timeLeft--;
+            timeLeft--;
 
-                timerElement.textContent =
-                    `⏱️ ${timeLeft}`;
-
-
-                if (timeLeft <= 5) {
-
-                    timerElement.classList.add(
-                        "warning"
-                    );
-
-                }
+            timerElement.textContent =
+                `⏱️ ${timeLeft}`;
 
 
-                if (timeLeft <= 0) {
+            if (timeLeft <= 5) {
 
-                    clearInterval(timer);
+                timerElement.classList.add(
+                    "warning"
+                );
 
-                    timeOut();
+            }
 
-                }
 
-            },
-            1000
-        );
+            if (timeLeft <= 0) {
+
+                clearInterval(timer);
+
+                timeOut();
+
+            }
+
+        }, 1000);
 
 }
 
@@ -1593,10 +1006,6 @@ function checkAnswer(
 
     clearInterval(timer);
 
-    timerElement.classList.remove(
-        "warning"
-    );
-
 
     const question =
         quizQuestions[currentQuestion];
@@ -1608,13 +1017,11 @@ function checkAnswer(
         );
 
 
-    buttons.forEach(
-        button => {
+    buttons.forEach(button => {
 
-            button.disabled = true;
+        button.disabled = true;
 
-        }
-    );
+    });
 
 
     if (
@@ -1626,14 +1033,15 @@ function checkAnswer(
             "correct"
         );
 
+
         feedback.textContent =
             "🎉 Benar! Cookie bangga sama kamu! 🍪";
+
 
         score += 10;
 
         correctAnswers++;
 
-        soundCorrect();
 
     } else {
 
@@ -1642,14 +1050,15 @@ function checkAnswer(
         );
 
 
+        /*
+           Cari tombol yang berisi jawaban benar
+        */
+
         buttons.forEach(button => {
 
             const answerText =
                 button.textContent
-                    .replace(
-                        /^[A-D]\.\s/,
-                        ""
-                    );
+                    .substring(3);
 
             if (
                 answerText ===
@@ -1670,9 +1079,8 @@ function checkAnswer(
         feedback.textContent =
             `💡 Belum tepat! Jawaban yang benar adalah ${question.answers[question.correct]}`;
 
-        wrongAnswers++;
 
-        soundWrong();
+        wrongAnswers++;
 
     }
 
@@ -1708,23 +1116,17 @@ function timeOut() {
         );
 
 
-    buttons.forEach(
-        button => {
+    buttons.forEach(button => {
 
-            button.disabled = true;
+        button.disabled = true;
 
-        }
-    );
+    });
 
 
     buttons.forEach(button => {
 
         const answerText =
-            button.textContent
-                .replace(
-                    /^[A-D]\.\s/,
-                    ""
-                );
+            button.textContent.substring(3);
 
         if (
             answerText ===
@@ -1748,8 +1150,6 @@ function timeOut() {
 
     wrongAnswers++;
 
-    soundTimeOut();
-
 
     nextBtn.style.display =
         "block";
@@ -1768,8 +1168,6 @@ nextBtn.addEventListener(
 
 
 function nextQuestion() {
-
-    soundNext();
 
     currentQuestion++;
 
@@ -1798,7 +1196,6 @@ function finishQuiz() {
 
     clearInterval(timer);
 
-    stopMusic();
 
     progressFill.style.width =
         "100%";
@@ -1810,10 +1207,7 @@ function finishQuiz() {
 
     const percentage =
         Math.round(
-            (
-                correctAnswers /
-                total
-            ) * 100
+            (correctAnswers / total) * 100
         );
 
 
@@ -1874,34 +1268,7 @@ function finishQuiz() {
     }
 
 
-    /*
-       SIMPAN HIGH SCORE
-    */
-
-    const oldHighScore =
-        Number(
-            localStorage.getItem(
-                "cookiekuHighScore"
-            )
-        ) || 0;
-
-
-    if (percentage > oldHighScore) {
-
-        localStorage.setItem(
-            "cookiekuHighScore",
-            percentage
-        );
-
-    }
-
-
-    showScreen(
-        resultScreen
-    );
-
-
-    soundFinish();
+    showScreen(resultScreen);
 
 }
 
@@ -1912,13 +1279,7 @@ function finishQuiz() {
 
 restartBtn.addEventListener(
     "click",
-    () => {
-
-        soundClick();
-
-        startQuiz();
-
-    }
+    startQuiz
 );
 
 
@@ -1930,37 +1291,21 @@ homeBtn.addEventListener(
     "click",
     () => {
 
-        soundClick();
-
         clearInterval(timer);
 
-        stopMusic();
-
-        showScreen(
-            homeScreen
-        );
+        showScreen(homeScreen);
 
     }
 );
 
 
-/* =========================================================
-   QUIT
-========================================================= */
-
 quitBtn.addEventListener(
     "click",
     () => {
 
-        soundClick();
-
         clearInterval(timer);
 
-        stopMusic();
-
-        showScreen(
-            homeScreen
-        );
+        showScreen(homeScreen);
 
     }
 );
@@ -1997,17 +1342,260 @@ function showScreen(screen) {
 
 
 /* =========================================================
-   INITIALIZE
+   SOUND SYSTEM
 ========================================================= */
 
-createSoundButton();
+let audioContext = null;
+
+let soundEnabled = true;
+
+
+function getAudioContext() {
+
+    if (!audioContext) {
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+    }
+
+    return audioContext;
+
+}
+
+
+function playSound(
+    frequency = 600,
+    duration = .12,
+    type = "sine"
+) {
+
+    if (!soundEnabled) return;
+
+
+    const ctx =
+        getAudioContext();
+
+
+    if (ctx.state === "suspended") {
+
+        ctx.resume();
+
+    }
+
+
+    const oscillator =
+        ctx.createOscillator();
+
+    const gain =
+        ctx.createGain();
+
+
+    oscillator.type = type;
+
+    oscillator.frequency.value =
+        frequency;
+
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        ctx.destination
+    );
+
+
+    gain.gain.setValueAtTime(
+        .0001,
+        ctx.currentTime
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        .15,
+        ctx.currentTime + .01
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        .0001,
+        ctx.currentTime + duration
+    );
+
+
+    oscillator.start();
+
+    oscillator.stop(
+        ctx.currentTime + duration
+    );
+
+}
+
+
+/* =========================================================
+   SOUND EVENTS
+========================================================= */
+
+const originalStartQuiz =
+    startQuiz;
+
+startBtn.addEventListener(
+    "click",
+    () => {
+
+        playSound(
+            650,
+            .12,
+            "sine"
+        );
+
+    }
+);
+
+
+nextBtn.addEventListener(
+    "click",
+    () => {
+
+        playSound(
+            550,
+            .10,
+            "sine"
+        );
+
+    }
+);
+
+
+restartBtn.addEventListener(
+    "click",
+    () => {
+
+        playSound(
+            650,
+            .12,
+            "sine"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   ANSWER SOUND
+========================================================= */
+
+const originalCheckAnswer =
+    checkAnswer;
 
 
 /*
-   Browser biasanya memblokir autoplay audio.
-   Musik baru mulai setelah user menekan tombol.
+   Suara diberikan berdasarkan
+   class jawaban setelah diproses.
 */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target.classList.contains(
+                "answer-btn"
+            )
+        ) {
+
+            setTimeout(() => {
+
+                if (
+                    event.target.classList.contains(
+                        "correct"
+                    )
+                ) {
+
+                    playSound(
+                        800,
+                        .18,
+                        "sine"
+                    );
+
+                }
+
+                else if (
+                    event.target.classList.contains(
+                        "wrong"
+                    )
+                ) {
+
+                    playSound(
+                        220,
+                        .20,
+                        "sawtooth"
+                    );
+
+                }
+
+            }, 30);
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SOUND TOGGLE
+========================================================= */
+
+const soundButton =
+    document.querySelector(
+        ".sound-toggle"
+    );
+
+
+if (soundButton) {
+
+    soundButton.addEventListener(
+        "click",
+        () => {
+
+            soundEnabled =
+                !soundEnabled;
+
+
+            soundButton.textContent =
+                soundEnabled
+                    ? "🔊"
+                    : "🔇";
+
+
+            if (soundEnabled) {
+
+                playSound(
+                    700,
+                    .1,
+                    "sine"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INITIAL STATE
+========================================================= */
+
+showScreen(homeScreen);
 
 console.log(
     "🍪 CookieKu 2.0 siap dimainkan!"
+);
+
+console.log(
+    `📚 Total soal: ${questions.length}`
 );
