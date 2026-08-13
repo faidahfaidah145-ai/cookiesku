@@ -4,166 +4,274 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CookieKu 🍪</title>
+    <title>CookieKu 2.0 🍪</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="background">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
+<div class="background">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+</div>
 
-    <main class="app">
+<main class="app">
 
-        <section id="homeScreen" class="screen active">
+    <!-- ================= HOME ================= -->
 
-            <div class="cookie bounce-anim">
-                🍪
+    <section id="homeScreen" class="screen active">
+
+        <div class="hero-cookie">🍪</div>
+
+        <div class="brand">
+            <h1>Cookie<span>Ku</span></h1>
+            <div class="version">2.0 ✨</div>
+        </div>
+
+        <p class="tagline">
+            Belajar sambil bermain,<br>
+            asah otak tanpa bikin pusing! 🧠
+        </p>
+
+        <div class="card welcome-card">
+
+            <div class="cookie-message">
+                <span class="mini-cookie">🍪</span>
+                <div>
+                    <strong>Halo, Pejuang Ilmu!</strong>
+                    <p>Cookie siap menemani belajarmu hari ini 💛</p>
+                </div>
             </div>
 
-            <h1>Cookie<span>Ku</span></h1>
+            <div class="section-title">
+                🎓 Pilih Kelas
+            </div>
 
-            <p class="tagline">
-                Belajar sambil bermain,<br>
-                asah otak tanpa bikin pusing! ✨
+            <div class="option-group">
+
+                <button class="class-btn selected" data-class="10">
+                    <strong>X</strong>
+                    <span>Kelas 10</span>
+                </button>
+
+                <button class="class-btn" data-class="11">
+                    <strong>XI</strong>
+                    <span>Kelas 11</span>
+                </button>
+
+                <button class="class-btn" data-class="12">
+                    <strong>XII</strong>
+                    <span>Kelas 12</span>
+                </button>
+
+            </div>
+
+            <div class="section-title">
+                📚 Pilih Kategori
+            </div>
+
+            <div class="category-grid">
+
+                <button class="category-btn selected" data-category="Semua">
+                    🎯
+                    <span>Semua</span>
+                </button>
+
+                <button class="category-btn" data-category="Pengetahuan Umum">
+                    🌎
+                    <span>Umum</span>
+                </button>
+
+                <button class="category-btn" data-category="Biologi">
+                    🧬
+                    <span>Biologi</span>
+                </button>
+
+                <button class="category-btn" data-category="Fisika">
+                    ⚡
+                    <span>Fisika</span>
+                </button>
+
+                <button class="category-btn" data-category="Kimia">
+                    🧪
+                    <span>Kimia</span>
+                </button>
+
+                <button class="category-btn" data-category="Matematika">
+                    📐
+                    <span>Matematika</span>
+                </button>
+
+                <button class="category-btn" data-category="Informatika">
+                    💻
+                    <span>Informatika</span>
+                </button>
+
+            </div>
+
+            <div class="best-score">
+                🏆 Best Score
+                <strong id="bestScore">0</strong>
+            </div>
+
+            <button id="startBtn" class="primary-btn">
+                Mulai Bermain 🚀
+            </button>
+
+        </div>
+
+        <p class="footer-text">
+            CookieKu 2.0 • Belajar jadi lebih seru 🍪✨
+        </p>
+
+    </section>
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <section id="quizScreen" class="screen">
+
+        <div class="quiz-header">
+
+            <button id="quitBtn" class="icon-btn">
+                ✕
+            </button>
+
+            <div class="progress-container">
+
+                <div class="progress-info">
+                    <span id="questionNumber">Soal 1 / 10</span>
+                    <span id="scoreDisplay">⭐ 0</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+
+            </div>
+
+            <div id="timer" class="timer">
+                ⏱️ 20
+            </div>
+
+        </div>
+
+
+        <div class="quiz-cookie">
+            🍪
+        </div>
+
+
+        <div class="card question-card">
+
+            <div class="question-top">
+                <span id="categoryBadge" class="badge">
+                    Biologi
+                </span>
+
+                <span id="difficultyBadge" class="difficulty">
+                    Mudah
+                </span>
+            </div>
+
+            <h2 id="questionText">
+                Pertanyaan akan muncul di sini
+            </h2>
+
+            <div id="answers" class="answers"></div>
+
+            <div id="feedback" class="feedback"></div>
+
+            <button id="nextBtn" class="primary-btn next-btn">
+                Soal Berikutnya →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESULT ================= -->
+
+    <section id="resultScreen" class="screen">
+
+        <div class="result-cookie">
+            🥳🍪
+        </div>
+
+        <h1>Quiz Selesai!</h1>
+
+        <p class="result-message">
+            Cookie bangga sama usaha kamu! ✨
+        </p>
+
+        <div class="card result-card">
+
+            <div class="score-circle">
+
+                <span id="finalScore">0</span>
+
+                <small>/ 100</small>
+
+            </div>
+
+            <h2 id="resultTitle">
+                Hebat!
+            </h2>
+
+            <p id="resultDescription">
+                Kamu sudah berusaha dengan baik.
             </p>
 
-            <div class="card welcome-card">
 
-                <h2>Halo, Pejuang Ilmu! 👋</h2>
+            <div class="result-stats">
 
-                <p>
-                    Yuk uji pengetahuanmu bersama Cookie!
-                </p>
-
-                <div class="selection">
-
-                    <label>Pilih Kelas</label>
-
-                    <div class="option-group">
-                        <button class="class-btn selected" data-class="10">Kelas X</button>
-                        <button class="class-btn" data-class="11">Kelas XI</button>
-                        <button class="class-btn" data-class="12">Kelas XII</button>
-                    </div>
-
-                    <label>Pilih Kategori</label>
-
-                    <div class="option-group">
-                        <button class="category-btn selected" data-category="Semua">🎯 Semua</button>
-                        <button class="category-btn" data-category="Pengetahuan Umum">🌎 Umum</button>
-                        <button class="category-btn" data-category="Sains">🔬 Sains</button>
-                    </div>
-
+                <div>
+                    <strong id="correctCount">0</strong>
+                    <span>Benar</span>
                 </div>
 
-                <button id="startBtn" class="primary-btn pulse-anim">
-                    Mulai Bermain 🚀
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <section id="quizScreen" class="screen">
-
-            <div class="quiz-header">
-
-                <button id="quitBtn" class="quit-btn">✕</button>
-
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span id="questionNumber">Soal 1</span>
-                        <span id="scoreDisplay">⭐ 0</span>
-                    </div>
-
-                    <div class="progress-bar">
-                        <div id="progressFill"></div>
-                    </div>
+                <div>
+                    <strong id="wrongCount">0</strong>
+                    <span>Salah</span>
                 </div>
 
-                <div id="timer" class="timer">⏱️ 20</div>
-
-            </div>
-
-            <div class="cookie-small float-anim">
-                🍪
-            </div>
-
-            <div class="card question-card">
-
-                <span id="categoryBadge" class="badge">Pengetahuan Umum</span>
-
-                <h2 id="questionText">Pertanyaan akan muncul di sini</h2>
-
-                <div id="answers" class="answers"></div>
-
-                <div id="feedback" class="feedback"></div>
-
-                <button id="nextBtn" class="primary-btn next-btn">
-                    Soal Berikutnya →
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <section id="resultScreen" class="screen">
-
-            <div class="result-cookie pop-anim">
-                🍪
-            </div>
-
-            <h1>Quiz Selesai! 🎉</h1>
-
-            <p class="result-message">Kerja bagus, Pejuang Ilmu!</p>
-
-            <div class="card result-card">
-
-                <div class="score-circle">
-                    <span id="finalScore">0</span>
-                    <small>/ 100</small>
+                <div>
+                    <strong id="totalCount">0</strong>
+                    <span>Total</span>
                 </div>
 
-                <h2 id="resultTitle">Hebat!</h2>
-
-                <p id="resultDescription">Kamu sudah berusaha dengan baik.</p>
-
-                <div class="result-stats">
-                    <div>
-                        <strong id="correctCount">0</strong>
-                        <span>Benar</span>
-                    </div>
-                    <div>
-                        <strong id="wrongCount">0</strong>
-                        <span>Salah</span>
-                    </div>
-                    <div>
-                        <strong id="totalCount">0</strong>
-                        <span>Total</span>
-                    </div>
-                </div>
-
-                <button id="restartBtn" class="primary-btn">Main Lagi 🔄</button>
-                <button id="homeBtn" class="secondary-btn">Kembali ke Beranda 🏠</button>
-
             </div>
 
-        </section>
 
-    </main>
+            <div class="result-best">
+                🏆 Best Score:
+                <strong id="resultBestScore">0</strong>
+            </div>
 
-    <script src="script.js"></script>
+
+            <button id="restartBtn" class="primary-btn">
+                Main Lagi 🔄
+            </button>
+
+            <button id="homeBtn" class="secondary-btn">
+                Kembali ke Beranda 🏠
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
-                
