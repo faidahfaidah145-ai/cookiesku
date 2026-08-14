@@ -1,12 +1,12 @@
+
 /* ==========================================================================
-   COOKIEKU 2.0 - AESTHETIC & PLAYFUL THEME
+   COOKIEKU 2.0 - AESTHETIC & PLAYFUL THEME (WITH SHAPED MENU)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. COLOR PALETTE & VARIABLES
    -------------------------------------------------------------------------- */
 :root {
-  /* Vibrant & Cheerful Palette */
   --primary: #ff8400;
   --primary-hover: #e57300;
   --primary-glow: rgba(255, 132, 0, 0.35);
@@ -208,7 +208,7 @@ h1 span {
 }
 
 /* --------------------------------------------------------------------------
-   5. SELECTION CONTROLS & GRIDS
+   5. SELECTION CONTROLS & BENTUK BENTUK MENU SOAL (CUSTOM STYLING)
    -------------------------------------------------------------------------- */
 .selection label {
   display: block;
@@ -218,6 +218,7 @@ h1 span {
   color: var(--text-main);
 }
 
+/* Custom Grid Menu */
 .option-group, .mode-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -233,7 +234,7 @@ h1 span {
   padding-right: 6px;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar untuk menu soal */
 .subject-grid::-webkit-scrollbar {
   width: 6px;
 }
@@ -242,12 +243,11 @@ h1 span {
   border-radius: 10px;
 }
 
-/* Interactive Option Buttons */
+/* Shared Base untuk Tombol Menu */
 .class-btn, .subject-btn, .mode-btn {
   border: 2px solid #f1f3f9;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   padding: 10px 12px;
-  border-radius: var(--radius-md);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-main);
@@ -255,14 +255,55 @@ h1 span {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
+/* === BENTUK UNIK PILIHAN KELAS (Capsule Shape) === */
+.class-btn {
+  border-radius: 30px; /* Bentuk kapsul melengkung mulus */
+}
+
+/* === BENTUK UNIK MAPEL / SUBJECT (Asymmetrical Squircle) === */
+.subject-btn {
+  border-radius: 18px 8px 18px 8px; /* Bentuk asimetris estetik */
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* === BENTUK UNIK MODE SOAL (Pill / Floating Card) === */
+.mode-btn {
+  border-radius: 14px;
+  border-bottom: 4px solid #e2e8f0; /* Efek tombol 3D */
+}
+
+.mode-btn:active {
+  border-bottom-width: 2px;
+  transform: translateY(2px);
+}
+
+/* State Hover Tombol Menu */
 .class-btn:hover, .subject-btn:hover, .mode-btn:hover {
   transform: translateY(-2px);
   border-color: #ffd8b3;
   background: #ffffff;
 }
 
+/* State Selected (Aktif) untuk Semua Menu Soal */
 .class-btn.selected, .subject-btn.selected, .mode-btn.selected {
   background: #fff5eb;
   border-color: var(--primary);
@@ -270,6 +311,14 @@ h1 span {
   font-weight: 700;
   box-shadow: 0 4px 12px var(--primary-glow);
   transform: translateY(-2px);
+}
+
+.subject-btn.selected::before {
+  opacity: 1;
+}
+
+.mode-btn.selected {
+  border-bottom-color: var(--primary-hover);
 }
 
 /* Dashboard Game Info */
@@ -576,5 +625,4 @@ h1 span {
   color: var(--text-muted);
   font-weight: 600;
 }
-
 
