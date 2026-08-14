@@ -1,2578 +1,401 @@
-/* =========================================================
-   COOKIEKU 2.0
-   MODERN - CUTE - EDUCATIONAL QUIZ
-   COMPATIBLE WITH EXISTING INDEX.HTML
-========================================================= */
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <title>CookieKu 2.0 🍪</title>
 
-:root {
-    --cream: #fffaf3;
-    --cream-dark: #fff1df;
+    <meta name="theme-color" content="#ff9b50">
+    <meta name="description" content="CookieKu - Aplikasi asah otak dan belajar interaktif untuk siswa SMA">
 
-    --brown: #684638;
-    --brown-dark: #3e2921;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    --orange: #ff9b50;
-    --orange-dark: #e8752f;
-    --orange-soft: #fff0df;
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-    --pink: #f5b7c2;
-    --pink-soft: #ffe7eb;
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    --green: #91c99e;
-    --green-soft: #e8f7eb;
+<body>
 
-    --red: #e99595;
-    --red-soft: #ffeded;
+<div class="background">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+</div>
 
-    --gray: #81736c;
-    --border: #eee2d8;
+<main class="app">
 
-    --white: #ffffff;
+    <!-- ================= HOME ================= -->
 
-    --shadow:
-        0 20px 55px rgba(91, 59, 44, .12);
+    <section id="homeScreen" class="screen active">
 
-    --shadow-small:
-        0 8px 25px rgba(91, 59, 44, .09);
-}
+        <div class="cookie">🍪</div>
 
+        <h1>Cookie<span>Ku</span></h1>
 
-/* =========================================================
-   BASE
-========================================================= */
+        <p class="tagline">
+            Belajar sambil bermain,<br>
+            asah otak tanpa bikin pusing! ✨
+        </p>
 
-html {
-    scroll-behavior: smooth;
-}
+        <div class="card welcome-card">
 
-body {
-    min-height: 100vh;
+            <h2>Halo, Pejuang Ilmu! 👋</h2>
 
-    font-family: "Poppins", sans-serif;
+            <p>
+                Yuk uji kemampuanmu bersama Cookie
+                dan lihat seberapa hebat pengetahuanmu! 🍪
+            </p>
 
-    color: var(--brown);
 
-    background:
-        radial-gradient(
-            circle at 5% 5%,
-            rgba(255, 196, 143, .55),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 95% 20%,
-            rgba(248, 190, 202, .45),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 45% 100%,
-            rgba(180, 221, 188, .45),
-            transparent 32%
-        ),
-        var(--cream);
+            <!-- KELAS -->
 
-    overflow-x: hidden;
-}
+            <div class="selection">
 
+                <label>🎓 Pilih Kelas</label>
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
+                <div class="option-group">
 
-.background {
-    position: fixed;
-    inset: 0;
+                    <button
+                        class="class-btn selected"
+                        data-class="10">
+                        ① Kelas X
+                    </button>
 
-    z-index: -1;
+                    <button
+                        class="class-btn"
+                        data-class="11">
+                        ② Kelas XI
+                    </button>
 
-    overflow: hidden;
+                    <button
+                        class="class-btn"
+                        data-class="12">
+                        ③ Kelas XII
+                    </button>
 
-    pointer-events: none;
-}
+                </div>
 
-.blob {
-    position: absolute;
 
-    border-radius: 50%;
+                <!-- MAPEL -->
 
-    filter: blur(10px);
+                <label>📚 Pilih Mata Pelajaran</label>
 
-    opacity: .55;
+                <div class="subject-grid">
 
-    animation: floatingBlob 9s ease-in-out infinite;
-}
+                    <button
+                        class="subject-btn selected"
+                        data-subject="Semua">
+                        🎯 Semua
+                    </button>
 
-.blob-1 {
-    width: 350px;
-    height: 350px;
+                    <button
+                        class="subject-btn"
+                        data-subject="Matematika">
+                        🧮 Matematika
+                    </button>
+
+                    <button
+                        class="subject-btn"
+                        data-subject="Fisika">
+                        ⚡ Fisika
+                    </button>
+
+                    <button
+                        class="subject-btn"
+                        data-subject="Kimia">
+                        🧪 Kimia
+                    </button>
+
+                    <button
+                        class="subject-btn"
+                        data-subject="Biologi">
+                        🧬 Biologi
+                    </button>
+
+                    <button
+                        class="subject-btn"
+                        data-subject="Bahasa Indonesia">
+                        📖 B. Indonesia
+                    </button>
+
+                    <button
+                        class="subject-btn"
+                        data-subject="Bahasa Inggris">
+                        🌎 B. Inggris
+                    </button>
 
-    top: -150px;
-    left: -130px;
+                    <button
+                        class="subject-btn"
+                        data-subject="Informatika">
+                        💻 Informatika
+                    </button>
 
-    background: #ffd2ad;
-}
+                    <button
+                        class="subject-btn"
+                        data-subject="Geografi">
+                        🌍 Geografi
+                    </button>
 
-.blob-2 {
-    width: 340px;
-    height: 340px;
+                    <button
+                        class="subject-btn"
+                        data-subject="Sejarah">
+                        🏛️ Sejarah
+                    </button>
 
-    top: 30%;
-    right: -170px;
+                    <button
+                        class="subject-btn"
+                        data-subject="Ekonomi">
+                        💰 Ekonomi
+                    </button>
 
-    background: #f8c7d0;
+                    <button
+                        class="subject-btn"
+                        data-subject="Sosiologi">
+                        👥 Sosiologi
+                    </button>
 
-    animation-delay: -3s;
-}
+                </div>
 
-.blob-3 {
-    width: 300px;
-    height: 300px;
 
-    bottom: -150px;
-    left: 18%;
+                <!-- MODE -->
 
-    background: #cce9d1;
+                <label>🧠 Mode Soal</label>
 
-    animation-delay: -6s;
-}
+                <div class="mode-grid">
 
-@keyframes floatingBlob {
+                    <button
+                        class="mode-btn selected"
+                        data-mode="Semua">
+                        🎯 Semua
+                    </button>
 
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
+                    <button
+                        class="mode-btn"
+                        data-mode="Umum">
+                        🌎 Umum
+                    </button>
 
-    50% {
-        transform: translate(20px, -25px);
-    }
-}
+                    <button
+                        class="mode-btn"
+                        data-mode="Sains">
+                        🔬 Sains
+                    </button>
 
+                </div>
 
-/* =========================================================
-   APP
-========================================================= */
+            </div>
 
-.app {
-    width: 100%;
-    max-width: 950px;
 
-    margin: auto;
+            <!-- INFO -->
 
-    padding: 30px 20px;
-}
+            <div class="game-info">
 
-.screen {
-    display: none;
+                <div>
+                    <span>📝</span>
+                    <strong>15</strong>
+                    <small>Soal / sesi</small>
+                </div>
 
-    width: 100%;
-    min-height: calc(100vh - 60px);
+                <div>
+                    <span>⏱️</span>
+                    <strong>20</strong>
+                    <small>Detik / soal</small>
+                </div>
 
-    flex-direction: column;
+                <div>
+                    <span>🎲</span>
+                    <strong>Acak</strong>
+                    <small>Soal & jawaban</small>
+                </div>
 
-    align-items: center;
-    justify-content: center;
+            </div>
 
-    animation: screenAppear .45s ease;
-}
 
-.screen.active {
-    display: flex;
-}
+            <button id="startBtn" class="primary-btn">
+                Mulai Bermain 🚀
+            </button>
 
-@keyframes screenAppear {
+            <button id="musicBtn" class="music-btn">
+                🔊 Suara Aktif
+            </button>
 
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
+        </div>
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    </section>
 
 
-/* =========================================================
-   HOME COOKIE
-========================================================= */
+    <!-- ================= QUIZ ================= -->
 
-.cookie {
-    width: 125px;
-    height: 125px;
+    <section id="quizScreen" class="screen">
 
-    display: flex;
+        <div class="quiz-header">
 
-    align-items: center;
-    justify-content: center;
+            <button id="quitBtn" class="quit-btn">
+                ✕
+            </button>
 
-    margin-bottom: 12px;
+            <div class="progress-container">
 
-    font-size: 82px;
+                <div class="progress-info">
+                    <span id="questionNumber">
+                        Soal 1 / 15
+                    </span>
 
-    background: rgba(255, 255, 255, .55);
+                    <span id="scoreDisplay">
+                        ⭐ 0
+                    </span>
+                </div>
 
-    border: 2px solid rgba(255, 255, 255, .8);
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
 
-    border-radius: 42%;
+            </div>
 
-    box-shadow: var(--shadow);
+            <div id="timer" class="timer">
+                ⏱️ 20
+            </div>
 
-    backdrop-filter: blur(15px);
+        </div>
 
-    animation: cookieFloat 3s ease-in-out infinite;
-}
 
-@keyframes cookieFloat {
+        <div class="quiz-cookie">
+            🍪
+        </div>
 
-    0%,
-    100% {
-        transform: translateY(0) rotate(-4deg);
-    }
 
-    50% {
-        transform: translateY(-12px) rotate(4deg);
-    }
-}
+        <div class="quiz-meta">
+            <span id="subjectDisplay">
+                Matematika
+            </span>
 
+            <span id="classDisplay">
+                Kelas X
+            </span>
+        </div>
 
-/* =========================================================
-   TITLE
-========================================================= */
 
-h1 {
-    font-family: "Baloo 2", cursive;
+        <div class="card question-card">
 
-    font-size: clamp(58px, 9vw, 82px);
+            <span id="categoryBadge" class="badge">
+                Sains
+            </span>
 
-    line-height: .9;
+            <h2 id="questionText">
+                Pertanyaan akan muncul di sini.
+            </h2>
 
-    letter-spacing: -2px;
+            <div id="answers" class="answers"></div>
 
-    color: var(--brown-dark);
+            <div id="feedback" class="feedback"></div>
 
-    text-align: center;
-}
+            <button
+                id="nextBtn"
+                class="primary-btn next-btn">
+                Soal Berikutnya →
+            </button>
 
-h1 span {
-    color: var(--orange-dark);
-}
+        </div>
 
-.tagline {
-    margin: 18px 0 28px;
+    </section>
 
-    color: var(--gray);
 
-    text-align: center;
+    <!-- ================= RESULT ================= -->
 
-    font-size: 14px;
+    <section id="resultScreen" class="screen">
 
-    line-height: 1.8;
-}
+        <div class="result-cookie">
+            🍪
+        </div>
 
+        <h1>Quiz Selesai! 🎉</h1>
 
-/* =========================================================
-   CARD
-========================================================= */
+        <p class="result-message">
+            Kerja bagus, Pejuang Ilmu!
+        </p>
 
-.card {
-    position: relative;
+        <div class="card result-card">
 
-    width: 100%;
+            <div class="score-circle">
 
-    background:
-        rgba(255, 255, 255, .82);
+                <span id="finalScore">
+                    0
+                </span>
 
-    border:
-        1px solid rgba(255, 255, 255, .9);
+                <small>/ 100</small>
 
-    border-radius: 30px;
+            </div>
 
-    box-shadow: var(--shadow);
 
-    backdrop-filter: blur(18px);
+            <h2 id="resultTitle">
+                Hebat!
+            </h2>
 
-    -webkit-backdrop-filter: blur(18px);
-}
+            <p id="resultDescription">
+                Kamu sudah berusaha dengan baik.
+            </p>
 
-.welcome-card {
-    max-width: 680px;
 
-    padding: 36px;
+            <div class="result-stats">
 
-    text-align: center;
-}
+                <div>
+                    <strong id="correctCount">
+                        0
+                    </strong>
 
-.welcome-card h2 {
-    font-family: "Baloo 2", cursive;
+                    <span>
+                        Benar
+                    </span>
+                </div>
 
-    font-size: 30px;
+                <div>
+                    <strong id="wrongCount">
+                        0
+                    </strong>
 
-    color: var(--brown-dark);
-}
+                    <span>
+                        Salah
+                    </span>
+                </div>
 
-.welcome-card > p {
-    margin-top: 4px;
+                <div>
+                    <strong id="totalCount">
+                        0
+                    </strong>
 
-    color: var(--gray);
+                    <span>
+                        Total
+                    </span>
+                </div>
 
-    font-size: 14px;
-}
+            </div>
 
 
-/* =========================================================
-   SELECTION
-========================================================= */
+            <button
+                id="restartBtn"
+                class="primary-btn">
+                Main Lagi 🔄
+            </button>
 
-.selection {
-    margin: 27px 0;
-}
+            <button
+                id="homeBtn"
+                class="secondary-btn">
+                Kembali ke Beranda 🏠
+            </button>
 
-.selection label {
-    display: block;
+        </div>
 
-    margin: 17px 0 9px;
+    </section>
 
-    text-align: left;
+</main>
 
-    color: var(--brown);
+<script src="script.js"></script>
 
-    font-size: 13px;
-
-    font-weight: 700;
-}
-
-.option-group {
-    display: flex;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-}
-
-.class-btn,
-.category-btn {
-    position: relative;
-
-    flex: 1;
-
-    min-width: 105px;
-
-    padding: 13px 14px;
-
-    border: 2px solid var(--border);
-
-    border-radius: 15px;
-
-    background: rgba(255, 255, 255, .9);
-
-    color: var(--brown);
-
-    font-family: inherit;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: .25s ease;
-}
-
-.class-btn:hover,
-.category-btn:hover {
-    transform: translateY(-3px);
-
-    border-color: var(--orange);
-
-    box-shadow: var(--shadow-small);
-}
-
-.class-btn.selected,
-.category-btn.selected {
-    background:
-        linear-gradient(
-            135deg,
-            #fff4e8,
-            #ffe5cf
-        );
-
-    border-color: var(--orange);
-
-    color: var(--orange-dark);
-
-    box-shadow:
-        0 8px 20px rgba(232, 137, 61, .13);
-}
-
-.class-btn.selected::after,
-.category-btn.selected::after {
-    content: "✓";
-
-    position: absolute;
-
-    top: -8px;
-    right: -8px;
-
-    width: 21px;
-    height: 21px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: var(--orange-dark);
-
-    color: white;
-
-    font-size: 11px;
-}
-
-
-/* =========================================================
-   PRIMARY BUTTON
-========================================================= */
-
-.primary-btn {
-    position: relative;
-
-    width: 100%;
-
-    padding: 16px 20px;
-
-    border: none;
-
-    border-radius: 17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--orange),
-            var(--orange-dark)
-        );
-
-    color: white;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 12px 28px rgba(232, 137, 61, .25);
-
-    overflow: hidden;
-
-    transition: .25s ease;
-}
-
-.primary-btn::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 80%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.4),
-            transparent
-        );
-
-    transform: skewX(-20deg);
-
-    transition: .6s ease;
-}
-
-.primary-btn:hover::before {
-    left: 130%;
-}
-
-.primary-btn:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 17px 35px rgba(232, 137, 61, .32);
-}
-
-.primary-btn:active {
-    transform: scale(.98);
-}
-
-
-/* =========================================================
-   SECONDARY BUTTON
-========================================================= */
-
-.secondary-btn {
-    width: 100%;
-
-    margin-top: 10px;
-
-    padding: 13px;
-
-    border: 2px solid transparent;
-
-    border-radius: 15px;
-
-    background: transparent;
-
-    color: var(--brown);
-
-    font-family: inherit;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: .2s;
-}
-
-.secondary-btn:hover {
-    background: rgba(255,255,255,.7);
-
-    border-color: var(--border);
-}
-
-
-/* =========================================================
-   QUIZ HEADER
-========================================================= */
-
-.quiz-header {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom: 24px;
-}
-
-.quit-btn {
-    flex-shrink: 0;
-
-    width: 44px;
-    height: 44px;
-
-    border: 1px solid rgba(255,255,255,.8);
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.9);
-
-    color: var(--brown);
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    box-shadow: var(--shadow-small);
-
-    transition: .2s;
-}
-
-.quit-btn:hover {
-    transform: rotate(-8deg) scale(1.05);
-
-    background: #fff0ed;
-
-    color: #b8574c;
-}
-
-.progress-container {
-    flex: 1;
-}
-
-.progress-info {
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 7px;
-
-    color: var(--brown);
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-.progress-bar {
-    height: 9px;
-
-    background: #e9ded5;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-#progressFill {
-    width: 0;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--orange),
-            var(--pink)
-        );
-
-    border-radius: inherit;
-
-    transition: width .4s ease;
-}
-
-
-/* =========================================================
-   TIMER
-========================================================= */
-
-.timer {
-    min-width: 70px;
-
-    padding: 10px 12px;
-
-    text-align: center;
-
-    background: rgba(255,255,255,.9);
-
-    border: 1px solid rgba(255,255,255,.8);
-
-    border-radius: 14px;
-
-    color: var(--brown);
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    box-shadow: var(--shadow-small);
-}
-
-
-/* =========================================================
-   QUIZ COOKIE
-========================================================= */
-
-.cookie-small {
-    position: relative;
-
-    z-index: 3;
-
-    margin-bottom: -18px;
-
-    font-size: 58px;
-
-    filter:
-        drop-shadow(
-            0 10px 10px rgba(80,50,35,.14)
-        );
-
-    animation: smallCookieFloat 2.8s ease-in-out infinite;
-}
-
-@keyframes smallCookieFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-
-/* =========================================================
-   QUESTION CARD
-========================================================= */
-
-.question-card {
-    max-width: 780px;
-
-    padding: 36px;
-}
-
-.badge {
-    display: inline-block;
-
-    padding: 7px 13px;
-
-    border-radius: 30px;
-
-    background: var(--orange-soft);
-
-    border: 1px solid #ffd7b8;
-
-    color: var(--orange-dark);
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    text-transform: uppercase;
-
-    letter-spacing: .4px;
-}
-
-#questionText {
-    margin: 20px 0 24px;
-
-    font-family: "Baloo 2", cursive;
-
-    font-size: clamp(23px, 4vw, 30px);
-
-    line-height: 1.3;
-
-    color: var(--brown-dark);
-}
-
-
-/* =========================================================
-   ANSWERS
-========================================================= */
-
-.answers {
-    display: grid;
-
-    gap: 12px;
-}
-
-.answer-btn {
-    width: 100%;
-
-    padding: 16px 18px;
-
-    text-align: left;
-
-    border: 2px solid var(--border);
-
-    border-radius: 16px;
-
-    background: #fffaf7;
-
-    color: var(--brown);
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: .2s ease;
-}
-
-.answer-btn:hover {
-    transform: translateX(5px);
-
-    border-color: var(--orange);
-
-    background: #fff6ee;
-
-    box-shadow: var(--shadow-small);
-}
-
-.answer-btn.correct {
-    background: var(--green-soft);
-
-    border-color: var(--green);
-
-    color: #397149;
-}
-
-.answer-btn.wrong {
-    background: var(--red-soft);
-
-    border-color: var(--red);
-
-    color: #a24e4e;
-}
-
-.answer-btn:disabled {
-    cursor: default;
-}
-
-.answer-btn:disabled:hover {
-    transform: none;
-}
-
-
-/* =========================================================
-   FEEDBACK
-========================================================= */
-
-.feedback {
-    min-height: 30px;
-
-    margin: 16px 0;
-
-    text-align: center;
-
-    color: var(--brown);
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    line-height: 1.5;
-}
-
-.next-btn {
-    display: none;
-}
-
-
-/* =========================================================
-   RESULT
-========================================================= */
-
-.result-cookie {
-    font-size: 82px;
-
-    margin-bottom: 5px;
-
-    animation: cookieFloat 3s ease-in-out infinite;
-
-    filter:
-        drop-shadow(
-            0 12px 12px rgba(80,50,35,.14)
-        );
-}
-
-.result-message {
-    margin: 10px 0 25px;
-
-    color: var(--gray);
-
-    font-size: 14px;
-
-    text-align: center;
-}
-
-.result-card {
-    max-width: 570px;
-
-    padding: 36px;
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   SCORE
-========================================================= */
-
-.score-circle {
-    width: 165px;
-    height: 165px;
-
-    margin: 0 auto 22px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-direction: column;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #fffaf3 55%,
-            transparent 56%
-        ),
-        conic-gradient(
-            var(--orange),
-            var(--pink),
-            #ffe2cb
-        );
-
-    box-shadow:
-        0 15px 35px rgba(232,137,61,.14);
-}
-
-.score-circle span {
-    font-family: "Baloo 2", cursive;
-
-    font-size: 58px;
-
-    line-height: 1;
-
-    font-weight: 800;
-
-    color: var(--orange-dark);
-}
-
-.score-circle small {
-    color: var(--gray);
-
-    font-weight: 700;
-
-    font-size: 12px;
-}
-
-.result-card h2 {
-    font-family: "Baloo 2", cursive;
-
-    font-size: 31px;
-
-    color: var(--brown-dark);
-}
-
-#resultDescription {
-    margin: 5px 0 25px;
-
-    color: var(--gray);
-
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   RESULT STATS
-========================================================= */
-
-.result-stats {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-
-    margin-bottom: 25px;
-}
-
-.result-stats div {
-    padding: 16px 6px;
-
-    background: #fffaf6;
-
-    border: 1px solid var(--border);
-
-    border-radius: 17px;
-
-    transition: .2s;
-}
-
-.result-stats div:hover {
-    transform: translateY(-3px);
-
-    box-shadow: var(--shadow-small);
-}
-
-.result-stats strong {
-    display: block;
-
-    font-family: "Baloo 2", cursive;
-
-    font-size: 28px;
-
-    line-height: 1;
-
-    color: var(--brown-dark);
-}
-
-.result-stats span {
-    display: block;
-
-    margin-top: 3px;
-
-    color: var(--gray);
-
-    font-size: 11px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .app {
-        padding: 20px 14px;
-    }
-
-    .screen {
-        min-height: calc(100vh - 40px);
-    }
-
-    .cookie {
-        width: 100px;
-        height: 100px;
-
-        font-size: 65px;
-    }
-
-    h1 {
-        font-size: 57px;
-    }
-
-    .tagline {
-        font-size: 13px;
-
-        margin: 15px 0 23px;
-    }
-
-    .welcome-card {
-        padding: 25px 18px;
-
-        border-radius: 25px;
-    }
-
-    .welcome-card h2 {
-        font-size: 26px;
-    }
-
-    .option-group {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .class-btn:last-child {
-        grid-column: span 2;
-    }
-
-    .class-btn,
-    .category-btn {
-        min-width: 0;
-
-        padding: 12px 8px;
-
-        font-size: 12px;
-    }
-
-    .quiz-header {
-        gap: 7px;
-
-        margin-bottom: 20px;
-    }
-
-    .quit-btn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .timer {
-        min-width: 62px;
-
-        padding: 9px 6px;
-
-        font-size: 11px;
-    }
-
-    .question-card {
-        padding: 28px 18px;
-
-        border-radius: 25px;
-    }
-
-    #questionText {
-        font-size: 23px;
-
-        margin: 17px 0 20px;
-    }
-
-    .answer-btn {
-        padding: 14px;
-
-        font-size: 13px;
-    }
-
-    .result-cookie {
-        font-size: 70px;
-    }
-
-    #resultScreen h1 {
-        font-size: 47px;
-    }
-
-    .result-card {
-        padding: 25px 17px;
-    }
-
-    .score-circle {
-        width: 145px;
-        height: 145px;
-    }
-
-    .score-circle span {
-        font-size: 50px;
-    }
-
-    .result-card h2 {
-        font-size: 27px;
-    }
-
-    .result-stats {
-        gap: 7px;
-    }
-
-}
-
-
-/* =========================================================
-   EXTRA SMALL PHONE
-========================================================= */
-
-@media (max-width: 380px) {
-
-    h1 {
-        font-size: 51px;
-    }
-
-    .cookie {
-        width: 90px;
-        height: 90px;
-
-        font-size: 58px;
-    }
-
-    .welcome-card,
-    .question-card,
-    .result-card {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .quiz-header {
-        gap: 5px;
-    }
-
-}
-
-
-/* =========================================================
-   BUTTON ACCESSIBILITY
-========================================================= */
-
-button:focus-visible {
-    outline: 3px solid rgba(255,155,80,.35);
-
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-
-        transition: none !important;
-
-        scroll-behavior: auto !important;
-    }
-
-}
-/* =========================================================
-   COOKIEKU 2.0
-   PREMIUM EDUCATIONAL QUIZ UI
-   ========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --cream: #fffaf4;
-    --cream-2: #fff3e6;
-
-    --brown: #634235;
-    --brown-dark: #3f2921;
-
-    --orange: #ff9d52;
-    --orange-dark: #e97832;
-    --orange-light: #ffd7b5;
-
-    --pink: #f6b7c4;
-    --pink-light: #ffe3e9;
-
-    --green: #91c9a0;
-    --green-light: #e5f6e9;
-
-    --red: #e99595;
-    --red-light: #ffe8e8;
-
-    --white: #ffffff;
-    --gray: #81736c;
-    --gray-light: #eee6df;
-
-    --shadow-sm: 0 8px 25px rgba(83, 52, 39, .08);
-    --shadow-md: 0 18px 45px rgba(83, 52, 39, .12);
-    --shadow-lg: 0 30px 70px rgba(83, 52, 39, .16);
-
-    --radius-sm: 14px;
-    --radius-md: 22px;
-    --radius-lg: 32px;
-}
-
-
-/* =========================================================
-   BODY
-   ========================================================= */
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    min-height: 100vh;
-
-    font-family: "Poppins", sans-serif;
-
-    color: var(--brown);
-
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            #ffe1c4 0,
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 90% 25%,
-            #ffdce4 0,
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            #dff2e2 0,
-            transparent 30%
-        ),
-        var(--cream);
-
-    overflow-x: hidden;
-}
-
-
-/* =========================================================
-   BACKGROUND
-   ========================================================= */
-
-.background {
-    position: fixed;
-    inset: 0;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
-.blob {
-    position: absolute;
-
-    border-radius: 50%;
-
-    filter: blur(8px);
-
-    opacity: .55;
-
-    animation: blobFloat 10s ease-in-out infinite;
-}
-
-.blob-1 {
-    width: 330px;
-    height: 330px;
-
-    top: -130px;
-    left: -120px;
-
-    background: #ffd2ad;
-}
-
-.blob-2 {
-    width: 360px;
-    height: 360px;
-
-    top: 25%;
-    right: -180px;
-
-    background: #f8c5cf;
-
-    animation-delay: -3s;
-}
-
-.blob-3 {
-    width: 300px;
-    height: 300px;
-
-    bottom: -150px;
-    left: 20%;
-
-    background: #cce9d1;
-
-    animation-delay: -6s;
-}
-
-@keyframes blobFloat {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    50% {
-        transform: translate(20px, -25px) scale(1.05);
-    }
-}
-
-
-/* =========================================================
-   APP
-   ========================================================= */
-
-.app {
-    width: 100%;
-    max-width: 1000px;
-
-    margin: auto;
-
-    padding: 35px 20px;
-}
-
-.screen {
-    display: none;
-
-    min-height: calc(100vh - 70px);
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    animation: screenIn .45s ease;
-}
-
-.screen.active {
-    display: flex;
-}
-
-@keyframes screenIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   HOME
-   ========================================================= */
-
-.cookie {
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 120px;
-    height: 120px;
-
-    margin-bottom: 10px;
-
-    font-size: 78px;
-
-    background: rgba(255, 255, 255, .55);
-
-    border: 1px solid rgba(255, 255, 255, .8);
-
-    border-radius: 40%;
-
-    box-shadow: var(--shadow-md);
-
-    backdrop-filter: blur(12px);
-
-    animation: cookieFloat 3.2s ease-in-out infinite;
-}
-
-.cookie::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 8px;
-
-    border-radius: inherit;
-
-    border: 2px dashed rgba(232, 137, 61, .18);
-
-    pointer-events: none;
-}
-
-@keyframes cookieFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(-4deg);
-    }
-
-    50% {
-        transform: translateY(-13px) rotate(4deg);
-    }
-}
-
-
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-
-h1 {
-    font-family: "Baloo 2", cursive;
-
-    font-size: clamp(54px, 8vw, 82px);
-
-    line-height: .9;
-
-    letter-spacing: -2px;
-
-    color: var(--brown-dark);
-
-    text-shadow:
-        0 5px 0 rgba(255, 255, 255, .8);
-}
-
-h1 span {
-    color: var(--orange-dark);
-}
-
-.tagline {
-    margin: 18px 0 30px;
-
-    text-align: center;
-
-    color: var(--gray);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   CARD
-   ========================================================= */
-
-.card {
-    position: relative;
-
-    width: 100%;
-
-    padding: 38px;
-
-    background: rgba(255, 255, 255, .82);
-
-    border: 1px solid rgba(255, 255, 255, .9);
-
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-lg);
-
-    backdrop-filter: blur(20px);
-
-    -webkit-backdrop-filter: blur(20px);
-}
-
-.card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 15%;
-
-    width: 70%;
-    height: 1px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, .9),
-        transparent
-    );
-}
-
-.welcome-card {
-    max-width: 680px;
-
-    text-align: center;
-}
-
-.welcome-card h2 {
-    font-family: "Baloo 2", cursive;
-
-    font-size: 30px;
-
-    color: var(--brown-dark);
-}
-
-.welcome-card > p {
-    margin-top: 4px;
-
-    color: var(--gray);
-
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   SELECTION
-   ========================================================= */
-
-.selection {
-    margin: 28px 0;
-}
-
-.selection label {
-    display: block;
-
-    margin: 18px 0 9px;
-
-    text-align: left;
-
-    color: var(--brown);
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: .3px;
-}
-
-.option-group {
-    display: flex;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-}
-
-.class-btn,
-.category-btn {
-    position: relative;
-
-    flex: 1;
-
-    min-width: 105px;
-
-    padding: 13px 16px;
-
-    background: rgba(255, 255, 255, .85);
-
-    border: 2px solid #eee3da;
-
-    border-radius: var(--radius-sm);
-
-    color: var(--brown);
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease,
-        box-shadow .25s ease;
-}
-
-.class-btn:hover,
-.category-btn:hover {
-    transform: translateY(-3px);
-
-    border-color: var(--orange);
-
-    box-shadow: var(--shadow-sm);
-}
-
-.class-btn.selected,
-.category-btn.selected {
-    background:
-        linear-gradient(
-            135deg,
-            #fff2e4,
-            #ffe7d0
-        );
-
-    border-color: var(--orange);
-
-    color: var(--orange-dark);
-
-    box-shadow:
-        0 8px 20px rgba(232, 137, 61, .14);
-}
-
-.class-btn.selected::after,
-.category-btn.selected::after {
-    content: "✓";
-
-    position: absolute;
-
-    top: -7px;
-    right: -7px;
-
-    width: 21px;
-    height: 21px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: var(--orange-dark);
-
-    color: white;
-
-    font-size: 11px;
-
-    box-shadow: 0 4px 10px rgba(232, 137, 61, .25);
-}
-
-
-/* =========================================================
-   PRIMARY BUTTON
-   ========================================================= */
-
-.primary-btn {
-    position: relative;
-
-    width: 100%;
-
-    padding: 16px 22px;
-
-    border: none;
-
-    border-radius: 17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--orange),
-            var(--orange-dark)
-        );
-
-    color: white;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    letter-spacing: .2px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 12px 28px rgba(232, 137, 61, .25);
-
-    overflow: hidden;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-}
-
-.primary-btn::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 70%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, .35),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    transition: left .6s ease;
-}
-
-.primary-btn:hover::before {
-    left: 130%;
-}
-
-.primary-btn:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 17px 35px rgba(232, 137, 61, .32);
-}
-
-.primary-btn:active {
-    transform: translateY(0) scale(.98);
-}
-
-
-/* =========================================================
-   SECONDARY BUTTON
-   ========================================================= */
-
-.secondary-btn {
-    width: 100%;
-
-    margin-top: 10px;
-
-    padding: 13px;
-
-    border: 2px solid transparent;
-
-    border-radius: 15px;
-
-    background: transparent;
-
-    color: var(--brown);
-
-    font-family: inherit;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: .2s;
-}
-
-.secondary-btn:hover {
-    background: rgba(255, 255, 255, .65);
-
-    border-color: #eaded5;
-}
-
-
-/* =========================================================
-   QUIZ HEADER
-   ========================================================= */
-
-.quiz-header {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    margin-bottom: 25px;
-}
-
-.quit-btn {
-    flex-shrink: 0;
-
-    width: 45px;
-    height: 45px;
-
-    border: 1px solid rgba(255, 255, 255, .8);
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, .85);
-
-    color: var(--brown);
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    box-shadow: var(--shadow-sm);
-
-    transition: .2s;
-}
-
-.quit-btn:hover {
-    transform: rotate(-8deg) scale(1.05);
-
-    background: #fff0ec;
-
-    color: #b85b4e;
-}
-
-.progress-container {
-    flex: 1;
-}
-
-.progress-info {
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 8px;
-
-    color: var(--brown);
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-.progress-bar {
-    height: 9px;
-
-    background: #eadfd6;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, .05);
-}
-
-#progressFill {
-    width: 0;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--orange),
-            var(--pink)
-        );
-
-    border-radius: inherit;
-
-    transition: width .45s ease;
-
-    box-shadow:
-        0 0 12px rgba(245, 164, 91, .35);
-}
-
-
-/* =========================================================
-   TIMER
-   ========================================================= */
-
-.timer {
-    min-width: 72px;
-
-    padding: 11px 13px;
-
-    text-align: center;
-
-    background: rgba(255, 255, 255, .9);
-
-    border: 1px solid rgba(255, 255, 255, .8);
-
-    border-radius: 14px;
-
-    color: var(--brown);
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    box-shadow: var(--shadow-sm);
-
-    transition: .2s;
-}
-
-.timer.warning {
-    color: #b94d45;
-
-    background: #fff0ee;
-
-    animation: timerPulse .65s ease-in-out infinite alternate;
-}
-
-@keyframes timerPulse {
-
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.06);
-    }
-}
-
-
-/* =========================================================
-   QUIZ COOKIE
-   ========================================================= */
-
-.cookie-small {
-    position: relative;
-
-    z-index: 3;
-
-    margin-bottom: -17px;
-
-    font-size: 58px;
-
-    filter:
-        drop-shadow(
-            0 10px 10px rgba(80, 50, 35, .14)
-        );
-
-    animation:
-        cookieSmallFloat 2.8s ease-in-out infinite;
-}
-
-@keyframes cookieSmallFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-
-/* =========================================================
-   QUESTION CARD
-   ========================================================= */
-
-.question-card {
-    max-width: 780px;
-}
-
-.badge {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 5px;
-
-    padding: 7px 13px;
-
-    background: #fff0e3;
-
-    border: 1px solid #ffdbc0;
-
-    border-radius: 30px;
-
-    color: var(--orange-dark);
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    text-transform: uppercase;
-
-    letter-spacing: .5px;
-}
-
-#questionText {
-    margin: 20px 0 24px;
-
-    font-family: "Baloo 2", cursive;
-
-    font-size: clamp(23px, 4vw, 30px);
-
-    line-height: 1.3;
-
-    color: var(--brown-dark);
-}
-
-
-/* =========================================================
-   ANSWERS
-   ========================================================= */
-
-.answers {
-    display: grid;
-
-    gap: 12px;
-}
-
-.answer-btn {
-    position: relative;
-
-    width: 100%;
-
-    padding: 16px 18px;
-
-    text-align: left;
-
-    background: rgba(255, 250, 246, .9);
-
-    border: 2px solid #eee2d9;
-
-    border-radius: 16px;
-
-    color: var(--brown);
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        transform .2s ease,
-        border-color .2s ease,
-        background .2s ease,
-        box-shadow .2s ease;
-}
-
-.answer-btn:hover {
-    transform: translateX(5px);
-
-    border-color: var(--orange);
-
-    background: #fff8f1;
-
-    box-shadow:
-        0 8px 20px rgba(83, 52, 39, .07);
-}
-
-.answer-btn:active {
-    transform: scale(.99);
-}
-
-.answer-btn.correct {
-    background: var(--green-light);
-
-    border-color: var(--green);
-
-    color: #3f7650;
-
-    animation: correctPop .35s ease;
-}
-
-.answer-btn.wrong {
-    background: var(--red-light);
-
-    border-color: var(--red);
-
-    color: #a64e4e;
-
-    animation: wrongShake .35s ease;
-}
-
-@keyframes correctPop {
-
-    0% {
-        transform: scale(.98);
-    }
-
-    60% {
-        transform: scale(1.02);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes wrongShake {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-
-    75% {
-        transform: translateX(5px);
-    }
-}
-
-.answer-btn:disabled {
-    cursor: default;
-}
-
-.answer-btn:disabled:hover {
-    transform: none;
-}
-
-
-/* =========================================================
-   FEEDBACK
-   ========================================================= */
-
-.feedback {
-    min-height: 30px;
-
-    margin: 16px 0;
-
-    text-align: center;
-
-    color: var(--brown);
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    line-height: 1.5;
-}
-
-.next-btn {
-    display: none;
-
-    margin-top: 5px;
-}
-
-
-/* =========================================================
-   RESULT
-   ========================================================= */
-
-.result-cookie {
-    font-size: 82px;
-
-    margin-bottom: 4px;
-
-    filter:
-        drop-shadow(
-            0 12px 12px rgba(80, 50, 35, .13)
-        );
-
-    animation:
-        cookieFloat 3s ease-in-out infinite;
-}
-
-#resultScreen h1 {
-    text-align: center;
-
-    font-size: clamp(45px, 7vw, 65px);
-}
-
-.result-message {
-    margin: 12px 0 27px;
-
-    text-align: center;
-
-    color: var(--gray);
-
-    font-size: 14px;
-}
-
-.result-card {
-    max-width: 570px;
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   SCORE CIRCLE
-   ========================================================= */
-
-.score-circle {
-    position: relative;
-
-    width: 170px;
-    height: 170px;
-
-    margin: 0 auto 22px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-direction: column;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #fff8ef 55%,
-            transparent 56%
-        ),
-        conic-gradient(
-            var(--orange) 0deg,
-            var(--pink) 260deg,
-            #ffe1c9 260deg
-        );
-
-    box-shadow:
-        0 15px 35px rgba(232, 137, 61, .15);
-
-    animation: scoreAppear .7s ease;
-}
-
-@keyframes scoreAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(.75) rotate(-10deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-}
-
-.score-circle span {
-    font-family: "Baloo 2", cursive;
-
-    font-size: 58px;
-
-    line-height: 1;
-
-    font-weight: 800;
-
-    color: var(--orange-dark);
-}
-
-.score-circle small {
-    margin-top: 2px;
-
-    color: var(--gray);
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   RESULT TEXT
-   ========================================================= */
-
-.result-card h2 {
-    font-family: "Baloo 2", cursive;
-
-    font-size: 31px;
-
-    color: var(--brown-dark);
-}
-
-#resultDescription {
-    margin: 4px 0 25px;
-
-    color: var(--gray);
-
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   RESULT STATS
-   ========================================================= */
-
-.result-stats {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 12px;
-
-    margin-bottom: 25px;
-}
-
-.result-stats div {
-    padding: 16px 8px;
-
-    background: rgba(255, 250, 246, .9);
-
-    border: 1px solid #eee3da;
-
-    border-radius: 17px;
-
-    transition: .2s;
-}
-
-.result-stats div:hover {
-    transform: translateY(-3px);
-
-    box-shadow: var(--shadow-sm);
-}
-
-.result-stats strong {
-    display: block;
-
-    margin-bottom: 2px;
-
-    font-family: "Baloo 2", cursive;
-
-    font-size: 28px;
-
-    line-height: 1;
-
-    color: var(--brown-dark);
-}
-
-.result-stats span {
-    color: var(--gray);
-
-    font-size: 11px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    .app {
-        padding: 20px 14px;
-    }
-
-    .screen {
-        min-height: calc(100vh - 40px);
-    }
-
-    .cookie {
-        width: 100px;
-        height: 100px;
-
-        font-size: 65px;
-    }
-
-    h1 {
-        font-size: 58px;
-    }
-
-    .tagline {
-        margin: 15px 0 24px;
-
-        font-size: 13px;
-    }
-
-    .card {
-        padding: 25px 18px;
-
-        border-radius: 25px;
-    }
-
-    .welcome-card h2 {
-        font-size: 26px;
-    }
-
-    .option-group {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .class-btn:last-child {
-        grid-column: span 2;
-    }
-
-    .class-btn,
-    .category-btn {
-        min-width: 0;
-
-        padding: 12px 8px;
-
-        font-size: 12px;
-    }
-
-    .quiz-header {
-        gap: 7px;
-
-        margin-bottom: 20px;
-    }
-
-    .quit-btn {
-        width: 40px;
-        height: 40px;
-
-        font-size: 15px;
-    }
-
-    .timer {
-        min-width: 62px;
-
-        padding: 9px 7px;
-
-        font-size: 11px;
-    }
-
-    .cookie-small {
-        font-size: 50px;
-    }
-
-    .question-card {
-        padding-top: 30px;
-    }
-
-    #questionText {
-        font-size: 23px;
-
-        margin: 17px 0 20px;
-    }
-
-    .answer-btn {
-        padding: 14px;
-
-        font-size: 13px;
-    }
-
-    .feedback {
-        font-size: 12px;
-    }
-
-    .result-cookie {
-        font-size: 70px;
-    }
-
-    #resultScreen h1 {
-        font-size: 48px;
-    }
-
-    .result-message {
-        margin-bottom: 22px;
-    }
-
-    .result-card {
-        padding: 25px 17px;
-    }
-
-    .score-circle {
-        width: 145px;
-        height: 145px;
-    }
-
-    .score-circle span {
-        font-size: 50px;
-    }
-
-    .result-card h2 {
-        font-size: 27px;
-    }
-
-    .result-stats {
-        gap: 7px;
-    }
-
-    .result-stats div {
-        padding: 13px 5px;
-    }
-
-    .result-stats strong {
-        font-size: 24px;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL PHONE
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    h1 {
-        font-size: 52px;
-    }
-
-    .cookie {
-        width: 90px;
-        height: 90px;
-
-        font-size: 58px;
-    }
-
-    .card {
-        padding: 22px 15px;
-    }
-
-    .quiz-header {
-        gap: 5px;
-    }
-
-    .progress-info {
-        font-size: 10px;
-    }
-
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-button:focus-visible {
-    outline: 3px solid rgba(245, 164, 91, .35);
-
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        scroll-behavior: auto !important;
-
-        transition-duration: .01ms !important;
-    }
-
-}
+</body>
+</html>
